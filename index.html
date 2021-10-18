@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fisheye</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="/public/img/logo.png" alt="" />
+      <nav aria-label="”photographer-categories”">
+        <ul>
+          <li id="portrait" data-filter="portrait">#Portrait</li>
+          <li id="art" data-filter="art">#Art</li>
+          <li id="fashion" data-filter="fashion">#Fashion</li>
+          <li id="architecture" data-filter="architecture">#Architecture</li>
+          <li id="travel" data-filter="travel">#Travel</li>
+          <li id="sport" data-filter="sport">#Sport</li>
+          <li id="animals" data-filter="animals">#Animals</li>
+          <li id="events" data-filter="events">#Events</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <h1
+        id="allPhotographers"
+        tabindex="11"
+        aria-label="Afficher tous les photographes"
+        data-filter=""
+      >
+        Nos Photographes
+      </h1>
+      <!--<div id="error">Error: Can't reach Photographers info</div>-->
+      <section
+        id="photographer-section"
+        class="photographer--section"
+      ></section>
+    </main>
+
+    <footer></footer>
+  </body>
+  <script src="./js/helpers.js"></script>
+  <script src="./js/index.js"></script>
+  <script>displayPhotographers()</script>
+</html>
