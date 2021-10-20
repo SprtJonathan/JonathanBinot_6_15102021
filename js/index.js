@@ -2,96 +2,6 @@ const photographerSection = document.getElementById("photographer-section");
 
 const dataLocation = "../public/json/photographers-data.json";
 
-// Récupération des données stockées dans le JSON
-console.log("Récupération des données du JSON");
-
-// Création de la class Photographer et de la factory
-class Photographer {
-  constructor(
-    id,
-    name,
-    description,
-    city,
-    country,
-    tags,
-    tagline,
-    price,
-    portrait
-  ) {
-    this._id = id;
-    this._name = name;
-    this._description = description;
-    this._city = city;
-    this._country = country;
-    this._tags = tags;
-    this._tagline = tagline;
-    this._price = price;
-    this._portrait = portrait;
-  }
-
-  get id() {
-    return this._id;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  get description() {
-    return this._description;
-  }
-
-  get city() {
-    return this._city;
-  }
-
-  get country() {
-    return this._country;
-  }
-
-  get tags() {
-    return this._tags;
-  }
-
-  get tagline() {
-    return this._tagline;
-  }
-
-  get price() {
-    return this._price;
-  }
-
-  get portrait() {
-    return this._portrait;
-  }
-}
-
-const PhotographerFactory = {
-  makePhotographer: function (
-    id,
-    name,
-    description,
-    city,
-    country,
-    tags,
-    tagline,
-    price,
-    portrait
-  ) {
-    return new Photographer(
-      id,
-      name,
-      description,
-      city,
-      country,
-      tags,
-      tagline,
-      price,
-      portrait
-    );
-  },
-};
-
 // Identification des boutons
 const allPhotographers = document.getElementById("allPhotographers");
 
@@ -147,7 +57,7 @@ function displayPhotographers() {
         // Bloc créé pour chaque photographe
         photographerSection.innerHTML += `
         <article class="photographer--article">
-                <a href="details.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer--profilePicture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
+                <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer--profilePicture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
                 <aside class="photographer--article--description">
                     <h2 tabindex="13" aria-label="Le nom du photographe est ${photographer.name} ">${photographer.name}</h2>
                     <h3 tabindex="14" aria-label="Le photographe viens de ${photographer.city}">${photographer.city}, ${photographer.country}</h3>
@@ -202,7 +112,7 @@ function filterPhotographer() {
       for (photographer of photographerMatchList) {
         photographerSection.innerHTML += `
         <article class="photographer--article">
-        <a href="details.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer--profilePicture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
+        <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer--profilePicture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
         <aside class="photographer--article--description">
             <h2 tabindex="13" aria-label="Le nom du photographe est ${photographer.name} ">${photographer.name}</h2>
             <h3 tabindex="14" aria-label="Le photographe viens de ${photographer.city}">${photographer.city}, ${photographer.country}</h3>

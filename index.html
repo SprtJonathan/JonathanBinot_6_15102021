@@ -8,8 +8,8 @@
   </head>
   <body>
     <header>
-      <img src="/public/img/logo.png" alt="" />
-      <nav aria-label="”photographer-categories”">
+      <img id="allPhotographers" src="/public/img/logo.png" alt="" />
+      <nav aria-label="Choix des tags pour les photographes">
         <ul>
           <li id="portrait" data-filter="portrait">#Portrait</li>
           <li id="art" data-filter="art">#Art</li>
@@ -25,7 +25,6 @@
 
     <main id="main">
       <h1
-        id="allPhotographers"
         tabindex="11"
         aria-label="Afficher tous les photographes"
         data-filter=""
@@ -41,7 +40,10 @@
 
     <footer></footer>
   </body>
+  <script src="./js/Photographer-Factory.js"></script>
   <script src="./js/helpers.js"></script>
   <script src="./js/index.js"></script>
-  <script>displayPhotographers()</script>
+  <script>
+    displayPhotographers();
+  </script>
 </html>
