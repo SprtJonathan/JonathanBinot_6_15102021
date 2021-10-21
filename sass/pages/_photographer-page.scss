@@ -1,0 +1,27 @@
+.photographer-page {
+  &--section {
+    display: flex;
+  }
+}
+
+.media {
+  &--card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin: auto;
+    align-items: center;
+
+    width: 100%;
+  }
+  &--image {
+    width: 200px;
+  }
+  &--video {
+    height: 100%;
+    width: 80%;
+    object-fit: cover;
+    margin: auto;
+  }
+}

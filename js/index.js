@@ -57,7 +57,7 @@ function displayPhotographers() {
         // Bloc créé pour chaque photographe
         photographerSection.innerHTML += `
         <article class="photographer--article">
-                <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer--profilePicture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
+                <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer-profile-picture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
                 <aside class="photographer--article--description">
                     <h2 tabindex="13" aria-label="Le nom du photographe est ${photographer.name} ">${photographer.name}</h2>
                     <h3 tabindex="14" aria-label="Le photographe viens de ${photographer.city}">${photographer.city}, ${photographer.country}</h3>
@@ -73,7 +73,7 @@ function displayPhotographers() {
           "article-tags-" + photographer.id
         );
         for (tag of photographer.tags) {
-          articleTags.innerHTML += `<span class="photographerTag" data-tag="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
+          articleTags.innerHTML += `<span class="tags" data-tag="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
         }
       }
     });

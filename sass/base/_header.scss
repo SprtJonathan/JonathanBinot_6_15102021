@@ -1,5 +1,42 @@
 header {
   display: flex;
-  position: absolute;
+  flex-direction: row;
+  flex-wrap: wrap;
   top: 2rem;
+  margin-top: 15px;
+}
+
+.logo {
+  width: 150px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  padding: auto;
+}
+
+li,
+.tags {
+  color: $primary-color;
+  border: 0.13rem rgba(128, 128, 128, 0.25) solid;
+  border-radius: 25px;
+  padding: 0.2rem 0.5rem;
+  margin: 0.1rem;
+  list-style: none;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+li:hover {
+  color: whitesmoke;
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+li:focus {
+  border: 1px black dotted;
 }
