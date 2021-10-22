@@ -7,18 +7,34 @@
     <link rel="stylesheet" href="./sass/main.css" />
   </head>
   <body>
+    <div class="content-button">
+      <a class="content-button--link" href="" id="allPhotographers" tabindex="1"
+        >Passer au contenu</a
+      >
+    </div>
+
     <header>
-      <a href="./index.html"><img id="allPhotographers" class="logo" src="/public/img/logo.png" alt="" />
-      <nav aria-label="Choix des tags pour les photographes"></a>
+      <a href="./index.html"
+        ><img
+          id="allPhotographers"
+          class="logo"
+          src="/public/img/logo.png"
+          alt="Fisheye Home page"
+      /></a>
+      <nav aria-label="Choix des tags pour les photographes">
         <ul class="navigation">
-          <li id="portrait" data-filter="portrait">#Portrait</li>
-          <li id="art" data-filter="art">#Art</li>
-          <li id="fashion" data-filter="fashion">#Fashion</li>
-          <li id="architecture" data-filter="architecture">#Architecture</li>
-          <li id="travel" data-filter="travel">#Travel</li>
-          <li id="sport" data-filter="sport">#Sport</li>
-          <li id="animals" data-filter="animals">#Animals</li>
-          <li id="events" data-filter="events">#Events</li>
+          <span id="portrait" class="tags" data-filter="portrait"
+            >#Portrait</span
+          >
+          <span id="art" class="tags" data-filter="art">#Art</span>
+          <span id="fashion" class="tags" data-filter="fashion">#Fashion</span>
+          <span id="architecture" class="tags" data-filter="architecture"
+            >#Architecture</span
+          >
+          <span id="travel" class="tags" data-filter="travel">#Travel</span>
+          <span id="sport" class="tags" data-filter="sport">#Sport</span>
+          <span id="animals" class="tags" data-filter="animals">#Animals</span>
+          <span id="events" class="tags" data-filter="events">#Events</span>
         </ul>
       </nav>
     </header>

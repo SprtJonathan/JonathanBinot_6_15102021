@@ -54,7 +54,7 @@ fetch(dataLocation)
           "article-tags-" + photographer.id
         );
         for (tag of photographer.tags) {
-          articleTags.innerHTML += `<span class="photographerTag" data-tag="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
+          articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
         }
       }
     }

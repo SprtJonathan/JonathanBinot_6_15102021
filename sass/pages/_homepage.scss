@@ -10,7 +10,6 @@ h1 {
   color: $primary-color;
   font-size: 16px;
   font-weight: 500;
-  font-family: sans-serif;
 }
 
 .photographer {
@@ -29,5 +28,74 @@ h1 {
     margin: auto;
     width: auto;
     padding: 2rem;
+  }
+  &--name {
+    color: $secondary-color;
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+  &--location {
+    color: $primary-color;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  &--quote {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  &--price {
+    color: #757575;
+  }
+}
+
+.content-button {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  &--link {
+    opacity: 0;
+    transition: opacity ease 300ms;
+    &--show {
+      width: auto;
+      margin: auto;
+      text-align: center;
+      border-radius: 10px;
+      color: black;
+      background-color: #db8876;
+      font-weight: 600;
+      padding: 0.5rem;
+
+      opacity: 1;
+
+      transition: opacity ease 300ms;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .photographer {
+    &--article {
+      width: 40%;
+      margin: 0px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .photographer {
+    &--article {
+      width: 40%;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .photographer {
+    &--article {
+      width: 25%;
+    }
   }
 }

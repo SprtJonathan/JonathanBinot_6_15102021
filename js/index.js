@@ -35,6 +35,17 @@ sportFilter.addEventListener("keypress", filterPhotographer);
 animalsFilter.addEventListener("keypress", filterPhotographer);
 eventsFilter.addEventListener("keypress", filterPhotographer);
 
+function scrollDiv() {
+  let y = window.scrollY;
+  if (y >= 10) {
+    allPhotographers.className = "content-button--link--show"
+  } else {
+    allPhotographers.className = "content-button--link"
+  }
+};
+
+window.addEventListener("scroll", scrollDiv);
+
 function displayPhotographers() {
   photographerSection.innerHTML = "";
   // Récupération des données des photographes
@@ -55,25 +66,14 @@ function displayPhotographers() {
         );
 
         // Bloc créé pour chaque photographe
-        photographerSection.innerHTML += `
-        <article class="photographer--article">
-                <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer-profile-picture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
-                <aside class="photographer--article--description">
-                    <h2 tabindex="13" aria-label="Le nom du photographe est ${photographer.name} ">${photographer.name}</h2>
-                    <h3 tabindex="14" aria-label="Le photographe viens de ${photographer.city}">${photographer.city}, ${photographer.country}</h3>
-                    <blockquote tabindex="15" aria-label="La devise du photographe est :${photographer.tagline}">${photographer.tagline}</blockquote>
-                    <p  tabindex="16" aria-label="Le prix de ce photographe est ${photographer.price}€ par jour">${photographer.price}€ /jour</p>
-                </aside>
-                <aside id="article-tags-${photographer.id}" class="articles--tags--${photographer.id}"></aside>
-        </article>  
-        `;
+        photographerSection.innerHTML += createHTMLCode(photographer);
 
         // Récupération des tags correspondant à chaque photographe
         const articleTags = document.getElementById(
           "article-tags-" + photographer.id
         );
         for (tag of photographer.tags) {
-          articleTags.innerHTML += `<span class="tags" data-tag="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
+          articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
         }
       }
     });
@@ -110,24 +110,13 @@ function filterPhotographer() {
         }
       }
       for (photographer of photographerMatchList) {
-        photographerSection.innerHTML += `
-        <article class="photographer--article">
-        <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer--profilePicture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/></a>
-        <aside class="photographer--article--description">
-            <h2 tabindex="13" aria-label="Le nom du photographe est ${photographer.name} ">${photographer.name}</h2>
-            <h3 tabindex="14" aria-label="Le photographe viens de ${photographer.city}">${photographer.city}, ${photographer.country}</h3>
-            <blockquote tabindex="15" aria-label="La devise du photographe est :${photographer.tagline}">${photographer.tagline}</blockquote>
-            <p  tabindex="16" aria-label="Le prix de ce photographe est ${photographer.price}€ par jour">${photographer.price}€ /jour</p>
-        </aside>
-        <aside id="article-tags-${photographer.id}" class="articles--tags--${photographer.id}"></aside>
-        </article>  
-            `;
+        photographerSection.innerHTML += createHTMLCode(photographer);
         // récupération des tags
         const articleTags = document.getElementById(
           "article-tags-" + photographer.id
         );
         for (tag of photographer.tags) {
-          articleTags.innerHTML += `<span class="photographerTag" data-tag="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
+          articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
         }
       }
     });
