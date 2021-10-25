@@ -1,6 +1,9 @@
 const photographerPageSection = document.getElementById(
   "photographer-page-section"
 );
+const photographerSectionArticle = document.getElementById(
+  "photographer-section-article"
+);
 const photographerMediaSection = document.getElementById(
   "photographer-media-section"
 );
@@ -38,16 +41,19 @@ fetch(dataLocation)
           data.photographers[i].price,
           data.photographers[i].portrait
         );
-        photographerName.textContent = data.photographers[i].name;
         console.log(photographer);
-        photographerPageSection.innerHTML = `
-              <article class="photographer--section--article">
-                  <h3 tabindex="4">${photographer.city}, ${photographer.country}</h3>
-                  <blockquote tabindex="5">${photographer.tagline}</blockquote>
-        
-                  <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
-              </article>
-              <img id="${photographer.id}-profilePicture" class="photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="7"/>`;
+        photographerSectionArticle.innerHTML = `
+        <div class="photographer-page--lblock">
+        <h1 id="photographer-name" class="photographer-page--name" aria-label="Le photographe sélectionné">
+          ${photographer.name}
+        </h1>
+        <h3 tabindex="4" class="photographer-page--location">${photographer.city}, ${photographer.country}</h3>
+        <blockquote tabindex="5" class="photographer-page--tagline">${photographer.tagline}</blockquote>
+        <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
+        </div>
+        <div class="contact-button-div"><a href="" id="contact-button" class="contact-button">Contactez-moi</a></div>
+        <img id="${photographer.id}-profilePicture" class="photographer-page--picture photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="7"/>
+        `;
 
         // Récupération des tags correspondant à chaque photographe
         const articleTags = document.getElementById(
@@ -63,10 +69,10 @@ fetch(dataLocation)
       (media) => media.photographerId === parseInt(photographerId)
     );
 
-    console.log(mediaData)
+    console.log(mediaData);
 
     // Constructeur de l'objet Media
-    for (let j = 0; j < mediaData.length ; j++) {
+    for (let j = 0; j < mediaData.length; j++) {
       const media = MediaFactory.makeMedia(
         mediaData[j].id,
         mediaData[j].photographerId,
@@ -76,10 +82,10 @@ fetch(dataLocation)
         mediaData[j].tags,
         mediaData[j].likes,
         mediaData[j].date,
-        mediaData[j].price,
+        mediaData[j].price
       );
 
-      console.log(media)
+      console.log(media);
 
       totalLike += media.likes;
 
@@ -96,38 +102,34 @@ fetch(dataLocation)
         if (media.video == undefined) {
           return `<img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`;
         }
-        return `<video controls class='media--video' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
+        return `<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
       }
 
-      // Création dynamique (from JSON) d'un article pour chaque médias du photographe
+      // Création d'un bloc figure pour chaque média du photographe
       photographerMediaSection.innerHTML += `
-        <article class="media--card" tabindex="${
-          media.photographerId
-        }" aria-label ="Le média de ${photographer.name} se nomme : ${media.title}">
-            ${generateMediaTag()} 
-            <div class="media--image--description">
-            <p tabindex="${
-              media.photographerId
-            }" aria-label=" le titre de l'oeuvre est ${media.titre}">${
+      <figure class="media--card" tabindex="${
+        media.photographerId
+      }" aria-label="Le média de ${photographer.name} se nomme : ${
         media.title
-      }</p>
-            <div class="prix-like">
-               <p tabindex="${
-                 media.photographerId
-               }" aria-label=" le prix de cette photo est ${media.price}€">${
-        media.price
-      } €</p>
-               <div class="media--like-counter" tabindex="${
-                 media.photographerId
-               }"> <span class="media--like-counter--span" id="like-counter-${
-        media.id
-      }" aria-label="il à été aimé ${media.likes} fois ">${
+      }">
+        ${generateMediaTag()}
+        <figcaption class="media--image--description">
+          <p tabindex="${
+            media.photographerId
+          }" aria-label=" le titre de l'oeuvre est ${media.titre}">
+            ${media.title}
+          </p>
+          <div class="media--like-counter" tabindex="${media.photographerId}">
+            <span class="media--like-counter--span" id="like-counter-${
+              media.id
+            }" aria-label="il à été aimé ${media.likes} fois ">${
         media.likes
-      }</span><span><i class="fas fa-heart" id="like-media-${
-        media.id
-      }"></i></span></div>
-            </div>
-            </div>
-        </article>`;
+      }</span>
+            <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${
+              media.id
+            }"></i></span>
+          </div>
+        </figcaption>
+      </figure>`;
     }
   });

@@ -3,9 +3,9 @@ main {
   flex-direction: column;
 }
 
-h1 {
+.our-photographers {
   position: absolute;
-  top: 10px;
+  top: 25px;
   left: 55%;
   color: $primary-color;
   font-size: 16px;
@@ -76,6 +76,10 @@ h1 {
 }
 
 @media (min-width: 767px) {
+  .our-photographers {
+    left: 75%;
+    font-size: 18px;
+  }
   .photographer {
     &--article {
       width: 40%;
@@ -85,6 +89,10 @@ h1 {
 }
 
 @media (min-width: 1024px) {
+  .our-photographers {
+    left: 80%;
+    font-size: 18px;
+  }
   .photographer {
     &--article {
       width: 40%;
@@ -93,6 +101,10 @@ h1 {
 }
 
 @media (min-width: 1440px) {
+  .our-photographers {
+    left: 85%;
+    font-size: 18px;
+  }
   .photographer {
     &--article {
       width: 25%;

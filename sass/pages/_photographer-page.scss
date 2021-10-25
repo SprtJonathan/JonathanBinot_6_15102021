@@ -1,27 +1,120 @@
 .photographer-page {
   &--section {
     display: flex;
+    justify-content: space-around;
+    padding: 2rem 1rem;
+    border-radius: 5px;
+    margin: auto;
+    width: 95%;
+
+    &--article {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &--name {
+    color: $secondary-color;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  &--location {
+    color: $primary-color;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  &--tagline {
+    color: gray;
+    margin: 15px 0px;
+  }
+  &--lblock {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+  }
+  &--picture {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 25px;
   }
 }
 
 .media {
   &--card {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-content: space-between;
     margin: auto;
     align-items: center;
+    justify-content: center;
 
     width: 100%;
   }
   &--image {
-    width: 200px;
+    width: 90%;
+    height: 190px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: 50% 20%;
+    &--description {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 90%;
+      color: $primary-color;
+    }
   }
   &--video {
     height: 100%;
     width: 80%;
     object-fit: cover;
     margin: auto;
+  }
+  &--like-counter {
+    display: flex;
+    align-self: center;
+    &--span {
+      margin: 0px 5px;
+    }
+  }
+}
+
+.contact-button-div {
+  position: fixed;
+  width: 100%;
+  bottom: 5%;
+  left: 0;
+}
+
+.contact-button {
+  display: flex;
+  width: fit-content;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0.25rem;
+  font-weight: 600;
+}
+
+/*Affichage desktop*/
+@media (min-width: 1024px) {
+  .photographer-page {
+    &--section {
+      width: 90%;
+      background-color: whitesmoke;
+    }
+  }
+
+  .media {
+    &--card {
+      width: 20%;
+    }
   }
 }

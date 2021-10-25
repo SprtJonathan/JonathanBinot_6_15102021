@@ -2,20 +2,31 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
   top: 2rem;
-  margin-top: 15px;
+  margin: 15px 0px;
 }
 
-.logo {
-  width: 150px;
+.logo,.back-to-index {
+  width: 13rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  margin: 0px;
+  width: 100vw;
 }
 
 ul {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 100vw;
   margin: auto;
-  padding: auto;
+  justify-content: center;
+  padding: 0;
 }
 
 li,
@@ -27,7 +38,7 @@ li,
   margin: 0.1rem;
   list-style: none;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 li:hover,
@@ -41,4 +52,28 @@ li:hover,
 
 li:focus {
   border: 1px black dotted;
+}
+
+@media (min-width: 850px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1280px) {
+  header {
+    width: 75%;
+  }
+  nav {
+    width: auto;
+  }
+  ul {
+    width: auto;
+  }
+}
+
+@media (min-width: 1920px) {
+  header {
+    width: 65%;
+  }
 }

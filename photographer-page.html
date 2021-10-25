@@ -5,27 +5,46 @@
     <title>Fisheye</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/main.css" />
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      data-auto-a11y="true"
+    ></script>
   </head>
   <body>
     <header>
-      <a href="./index.html"><img id="allPhotographers" class="logo" src="/public/img/logo.png" alt="" />
-        <nav aria-label="Choix des tags pour les photographes"></a>
-      <nav aria-label="”photographer-categories”">
+      <a href="./index.html" class="back-to-index"
+        ><img
+          id="allPhotographers"
+          class="logo"
+          src="/public/img/logo.png"
+          alt=""
+      /></a>
+      <nav aria-label="Choix des tags pour les photographes">
         <ul></ul>
       </nav>
     </header>
 
     <main id="main">
-      <h1 id="photographer-name" aria-label="Le photographe sélectionné">
-        Erreur : ID Invalide
-      </h1>
       <!--<div id="error">Error: Can't reach Photographers info</div>-->
       <section
         id="photographer-page-section"
         class="photographer-page--section"
-      ></section>
+      >
+        <article
+          id="photographer-section-article"
+          class="photographer-page--section--article"
+        >
+          <h1
+            id="photographer-name"
+            class="photographer-page--name"
+            aria-label="Le photographe sélectionné"
+          >
+            Erreur : ID Invalide
+          </h1>
+        </article>
+      </section>
 
-      <section id="photographer-media-section"></section>
+      <section id="photographer-media-section" class="media--section"></section>
     </main>
 
     <footer></footer>
