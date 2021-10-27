@@ -18,7 +18,11 @@ const photographerName = document.getElementById("photographer-name");
 
 const photographerId = location.search.substring(4);
 
-console.log(photographerId);
+function orderMediaSelect() {
+  let orderMediaSelectedValue = document.getElementById("order-by").value;
+  console.log(orderMediaSelectValue);
+  return orderMediaSelectedValue;
+}
 
 fetch(dataLocation)
   .then((data) => {
@@ -51,7 +55,7 @@ fetch(dataLocation)
         <blockquote tabindex="5" class="photographer-page--tagline">${photographer.tagline}</blockquote>
         <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
         </div>
-        <div class="contact-button-div"><a href="" id="contact-button" class="contact-button">Contactez-moi</a></div>
+        <div id="contact-button" class="contact-button-div"><span id="contact-button" class="contact-button">Contactez-moi</span></div>
         <img id="${photographer.id}-profilePicture" class="photographer-page--picture photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="7"/>
         `;
 
@@ -63,6 +67,29 @@ fetch(dataLocation)
           articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`;
         }
       }
+    }
+
+    // Affichage du nom du photographe dans le formulaire de contact
+    let contactFormTitle = document.getElementById("contact-me");
+    contactFormTitle.textContent = photographer.name;
+
+    const modalbg = document.getElementById("form-background"); // Div d'arrière plan du formulaire
+
+    const contactButton = document.getElementById("contact-button");
+
+    const closeButton = document.getElementById("close-button");
+
+    contactButton.addEventListener("click", openModal);
+    closeButton.addEventListener("click", closeModal);
+
+    function openModal() {
+      modalbg.style.display = "flex";
+      contactButton.style.display = "none";
+    }
+
+    function closeModal() {
+      modalbg.style.display = "none";
+      contactButton.style.display = "flex";
     }
 
     const mediaData = data.media.filter(

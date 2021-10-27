@@ -57,8 +57,10 @@ main {
   text-align: center;
   &--link {
     opacity: 0;
+    display: none;
     transition: opacity ease 300ms;
     &--show {
+      display: flex;
       width: auto;
       margin: auto;
       text-align: center;
