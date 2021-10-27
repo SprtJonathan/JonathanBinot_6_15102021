@@ -49,16 +49,18 @@
     font-family: Arial;
     width: 90%;
     margin: 1rem auto;
-    &--select{
+    &--select {
       border: 0;
       border-radius: 5px;
       background-color: $primary-color;
       color: white;
-      padding: .5rem 1rem;
-      
+      padding: 0.5rem 1rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
     &--option {
-      padding: .25rem .5rem;
+      padding: 0.25rem 0.5rem;
       border-bottom: white 1px solid;
     }
   }
@@ -78,6 +80,8 @@
     align-items: center;
     justify-content: center;
 
+    animation: slide-in 250ms ease;
+    animation-fill-mode: both;
     width: 100%;
   }
   &--image {
@@ -109,11 +113,18 @@
   }
 }
 
+@for $i from 1 through 100 {
+  .media--card:nth-child(#{$i}n) {
+    animation-delay: #{$i * 50}ms;
+  }
+}
+
 .contact-button-div {
   position: fixed;
   width: 100%;
   bottom: 5%;
   left: 0;
+  z-index: 100;
 }
 
 .contact-button {
@@ -127,6 +138,11 @@
   padding: 10px 15px;
   border-radius: 0.25rem;
   font-weight: 600;
+  &:hover {
+    cursor: pointer;
+    background-color: $secondary-color;
+    transition: all ease 250ms;
+  }
 }
 
 .modal {

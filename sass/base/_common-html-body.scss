@@ -8,11 +8,11 @@ body {
   width: 100vw;
   margin: 0;
 }
-a:focus{
-  border: 1px dotted black;
+a:focus {
+  border: 1px dotted $primary-color;
 }
 
-a{
+a {
   color: $secondary-color;
   text-decoration: none;
 }

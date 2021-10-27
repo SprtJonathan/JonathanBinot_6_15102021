@@ -1,3 +1,29 @@
+@-webkit-keyframes slide-in {
+  from {
+    -webkit-transform: translateX(-500px);
+            transform: translateX(-500px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    -webkit-transform: translateX(-500px);
+            transform: translateX(-500px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
 html {
   overflow-x: hidden;
   width: 100vw;
@@ -11,7 +37,7 @@ body {
 }
 
 a:focus {
-  border: 1px dotted black;
+  border: 1px dotted #901c1c;
 }
 
 a {
@@ -330,11 +356,15 @@ main {
   border-radius: 5px;
   background-color: #901c1c;
   color: white;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.media--select--select:hover {
+  cursor: pointer;
 }
 
 .media--select--option {
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   border-bottom: white 1px solid;
 }
 
@@ -369,6 +399,10 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-animation: slide-in 250ms ease;
+          animation: slide-in 250ms ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
   width: 100%;
 }
 
@@ -417,11 +451,512 @@ main {
   margin: 0px 5px;
 }
 
+.media--card:nth-child(1n) {
+  -webkit-animation-delay: 50ms;
+          animation-delay: 50ms;
+}
+
+.media--card:nth-child(2n) {
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.media--card:nth-child(3n) {
+  -webkit-animation-delay: 150ms;
+          animation-delay: 150ms;
+}
+
+.media--card:nth-child(4n) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.media--card:nth-child(5n) {
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+
+.media--card:nth-child(6n) {
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.media--card:nth-child(7n) {
+  -webkit-animation-delay: 350ms;
+          animation-delay: 350ms;
+}
+
+.media--card:nth-child(8n) {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+
+.media--card:nth-child(9n) {
+  -webkit-animation-delay: 450ms;
+          animation-delay: 450ms;
+}
+
+.media--card:nth-child(10n) {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+
+.media--card:nth-child(11n) {
+  -webkit-animation-delay: 550ms;
+          animation-delay: 550ms;
+}
+
+.media--card:nth-child(12n) {
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
+}
+
+.media--card:nth-child(13n) {
+  -webkit-animation-delay: 650ms;
+          animation-delay: 650ms;
+}
+
+.media--card:nth-child(14n) {
+  -webkit-animation-delay: 700ms;
+          animation-delay: 700ms;
+}
+
+.media--card:nth-child(15n) {
+  -webkit-animation-delay: 750ms;
+          animation-delay: 750ms;
+}
+
+.media--card:nth-child(16n) {
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms;
+}
+
+.media--card:nth-child(17n) {
+  -webkit-animation-delay: 850ms;
+          animation-delay: 850ms;
+}
+
+.media--card:nth-child(18n) {
+  -webkit-animation-delay: 900ms;
+          animation-delay: 900ms;
+}
+
+.media--card:nth-child(19n) {
+  -webkit-animation-delay: 950ms;
+          animation-delay: 950ms;
+}
+
+.media--card:nth-child(20n) {
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
+}
+
+.media--card:nth-child(21n) {
+  -webkit-animation-delay: 1050ms;
+          animation-delay: 1050ms;
+}
+
+.media--card:nth-child(22n) {
+  -webkit-animation-delay: 1100ms;
+          animation-delay: 1100ms;
+}
+
+.media--card:nth-child(23n) {
+  -webkit-animation-delay: 1150ms;
+          animation-delay: 1150ms;
+}
+
+.media--card:nth-child(24n) {
+  -webkit-animation-delay: 1200ms;
+          animation-delay: 1200ms;
+}
+
+.media--card:nth-child(25n) {
+  -webkit-animation-delay: 1250ms;
+          animation-delay: 1250ms;
+}
+
+.media--card:nth-child(26n) {
+  -webkit-animation-delay: 1300ms;
+          animation-delay: 1300ms;
+}
+
+.media--card:nth-child(27n) {
+  -webkit-animation-delay: 1350ms;
+          animation-delay: 1350ms;
+}
+
+.media--card:nth-child(28n) {
+  -webkit-animation-delay: 1400ms;
+          animation-delay: 1400ms;
+}
+
+.media--card:nth-child(29n) {
+  -webkit-animation-delay: 1450ms;
+          animation-delay: 1450ms;
+}
+
+.media--card:nth-child(30n) {
+  -webkit-animation-delay: 1500ms;
+          animation-delay: 1500ms;
+}
+
+.media--card:nth-child(31n) {
+  -webkit-animation-delay: 1550ms;
+          animation-delay: 1550ms;
+}
+
+.media--card:nth-child(32n) {
+  -webkit-animation-delay: 1600ms;
+          animation-delay: 1600ms;
+}
+
+.media--card:nth-child(33n) {
+  -webkit-animation-delay: 1650ms;
+          animation-delay: 1650ms;
+}
+
+.media--card:nth-child(34n) {
+  -webkit-animation-delay: 1700ms;
+          animation-delay: 1700ms;
+}
+
+.media--card:nth-child(35n) {
+  -webkit-animation-delay: 1750ms;
+          animation-delay: 1750ms;
+}
+
+.media--card:nth-child(36n) {
+  -webkit-animation-delay: 1800ms;
+          animation-delay: 1800ms;
+}
+
+.media--card:nth-child(37n) {
+  -webkit-animation-delay: 1850ms;
+          animation-delay: 1850ms;
+}
+
+.media--card:nth-child(38n) {
+  -webkit-animation-delay: 1900ms;
+          animation-delay: 1900ms;
+}
+
+.media--card:nth-child(39n) {
+  -webkit-animation-delay: 1950ms;
+          animation-delay: 1950ms;
+}
+
+.media--card:nth-child(40n) {
+  -webkit-animation-delay: 2000ms;
+          animation-delay: 2000ms;
+}
+
+.media--card:nth-child(41n) {
+  -webkit-animation-delay: 2050ms;
+          animation-delay: 2050ms;
+}
+
+.media--card:nth-child(42n) {
+  -webkit-animation-delay: 2100ms;
+          animation-delay: 2100ms;
+}
+
+.media--card:nth-child(43n) {
+  -webkit-animation-delay: 2150ms;
+          animation-delay: 2150ms;
+}
+
+.media--card:nth-child(44n) {
+  -webkit-animation-delay: 2200ms;
+          animation-delay: 2200ms;
+}
+
+.media--card:nth-child(45n) {
+  -webkit-animation-delay: 2250ms;
+          animation-delay: 2250ms;
+}
+
+.media--card:nth-child(46n) {
+  -webkit-animation-delay: 2300ms;
+          animation-delay: 2300ms;
+}
+
+.media--card:nth-child(47n) {
+  -webkit-animation-delay: 2350ms;
+          animation-delay: 2350ms;
+}
+
+.media--card:nth-child(48n) {
+  -webkit-animation-delay: 2400ms;
+          animation-delay: 2400ms;
+}
+
+.media--card:nth-child(49n) {
+  -webkit-animation-delay: 2450ms;
+          animation-delay: 2450ms;
+}
+
+.media--card:nth-child(50n) {
+  -webkit-animation-delay: 2500ms;
+          animation-delay: 2500ms;
+}
+
+.media--card:nth-child(51n) {
+  -webkit-animation-delay: 2550ms;
+          animation-delay: 2550ms;
+}
+
+.media--card:nth-child(52n) {
+  -webkit-animation-delay: 2600ms;
+          animation-delay: 2600ms;
+}
+
+.media--card:nth-child(53n) {
+  -webkit-animation-delay: 2650ms;
+          animation-delay: 2650ms;
+}
+
+.media--card:nth-child(54n) {
+  -webkit-animation-delay: 2700ms;
+          animation-delay: 2700ms;
+}
+
+.media--card:nth-child(55n) {
+  -webkit-animation-delay: 2750ms;
+          animation-delay: 2750ms;
+}
+
+.media--card:nth-child(56n) {
+  -webkit-animation-delay: 2800ms;
+          animation-delay: 2800ms;
+}
+
+.media--card:nth-child(57n) {
+  -webkit-animation-delay: 2850ms;
+          animation-delay: 2850ms;
+}
+
+.media--card:nth-child(58n) {
+  -webkit-animation-delay: 2900ms;
+          animation-delay: 2900ms;
+}
+
+.media--card:nth-child(59n) {
+  -webkit-animation-delay: 2950ms;
+          animation-delay: 2950ms;
+}
+
+.media--card:nth-child(60n) {
+  -webkit-animation-delay: 3000ms;
+          animation-delay: 3000ms;
+}
+
+.media--card:nth-child(61n) {
+  -webkit-animation-delay: 3050ms;
+          animation-delay: 3050ms;
+}
+
+.media--card:nth-child(62n) {
+  -webkit-animation-delay: 3100ms;
+          animation-delay: 3100ms;
+}
+
+.media--card:nth-child(63n) {
+  -webkit-animation-delay: 3150ms;
+          animation-delay: 3150ms;
+}
+
+.media--card:nth-child(64n) {
+  -webkit-animation-delay: 3200ms;
+          animation-delay: 3200ms;
+}
+
+.media--card:nth-child(65n) {
+  -webkit-animation-delay: 3250ms;
+          animation-delay: 3250ms;
+}
+
+.media--card:nth-child(66n) {
+  -webkit-animation-delay: 3300ms;
+          animation-delay: 3300ms;
+}
+
+.media--card:nth-child(67n) {
+  -webkit-animation-delay: 3350ms;
+          animation-delay: 3350ms;
+}
+
+.media--card:nth-child(68n) {
+  -webkit-animation-delay: 3400ms;
+          animation-delay: 3400ms;
+}
+
+.media--card:nth-child(69n) {
+  -webkit-animation-delay: 3450ms;
+          animation-delay: 3450ms;
+}
+
+.media--card:nth-child(70n) {
+  -webkit-animation-delay: 3500ms;
+          animation-delay: 3500ms;
+}
+
+.media--card:nth-child(71n) {
+  -webkit-animation-delay: 3550ms;
+          animation-delay: 3550ms;
+}
+
+.media--card:nth-child(72n) {
+  -webkit-animation-delay: 3600ms;
+          animation-delay: 3600ms;
+}
+
+.media--card:nth-child(73n) {
+  -webkit-animation-delay: 3650ms;
+          animation-delay: 3650ms;
+}
+
+.media--card:nth-child(74n) {
+  -webkit-animation-delay: 3700ms;
+          animation-delay: 3700ms;
+}
+
+.media--card:nth-child(75n) {
+  -webkit-animation-delay: 3750ms;
+          animation-delay: 3750ms;
+}
+
+.media--card:nth-child(76n) {
+  -webkit-animation-delay: 3800ms;
+          animation-delay: 3800ms;
+}
+
+.media--card:nth-child(77n) {
+  -webkit-animation-delay: 3850ms;
+          animation-delay: 3850ms;
+}
+
+.media--card:nth-child(78n) {
+  -webkit-animation-delay: 3900ms;
+          animation-delay: 3900ms;
+}
+
+.media--card:nth-child(79n) {
+  -webkit-animation-delay: 3950ms;
+          animation-delay: 3950ms;
+}
+
+.media--card:nth-child(80n) {
+  -webkit-animation-delay: 4000ms;
+          animation-delay: 4000ms;
+}
+
+.media--card:nth-child(81n) {
+  -webkit-animation-delay: 4050ms;
+          animation-delay: 4050ms;
+}
+
+.media--card:nth-child(82n) {
+  -webkit-animation-delay: 4100ms;
+          animation-delay: 4100ms;
+}
+
+.media--card:nth-child(83n) {
+  -webkit-animation-delay: 4150ms;
+          animation-delay: 4150ms;
+}
+
+.media--card:nth-child(84n) {
+  -webkit-animation-delay: 4200ms;
+          animation-delay: 4200ms;
+}
+
+.media--card:nth-child(85n) {
+  -webkit-animation-delay: 4250ms;
+          animation-delay: 4250ms;
+}
+
+.media--card:nth-child(86n) {
+  -webkit-animation-delay: 4300ms;
+          animation-delay: 4300ms;
+}
+
+.media--card:nth-child(87n) {
+  -webkit-animation-delay: 4350ms;
+          animation-delay: 4350ms;
+}
+
+.media--card:nth-child(88n) {
+  -webkit-animation-delay: 4400ms;
+          animation-delay: 4400ms;
+}
+
+.media--card:nth-child(89n) {
+  -webkit-animation-delay: 4450ms;
+          animation-delay: 4450ms;
+}
+
+.media--card:nth-child(90n) {
+  -webkit-animation-delay: 4500ms;
+          animation-delay: 4500ms;
+}
+
+.media--card:nth-child(91n) {
+  -webkit-animation-delay: 4550ms;
+          animation-delay: 4550ms;
+}
+
+.media--card:nth-child(92n) {
+  -webkit-animation-delay: 4600ms;
+          animation-delay: 4600ms;
+}
+
+.media--card:nth-child(93n) {
+  -webkit-animation-delay: 4650ms;
+          animation-delay: 4650ms;
+}
+
+.media--card:nth-child(94n) {
+  -webkit-animation-delay: 4700ms;
+          animation-delay: 4700ms;
+}
+
+.media--card:nth-child(95n) {
+  -webkit-animation-delay: 4750ms;
+          animation-delay: 4750ms;
+}
+
+.media--card:nth-child(96n) {
+  -webkit-animation-delay: 4800ms;
+          animation-delay: 4800ms;
+}
+
+.media--card:nth-child(97n) {
+  -webkit-animation-delay: 4850ms;
+          animation-delay: 4850ms;
+}
+
+.media--card:nth-child(98n) {
+  -webkit-animation-delay: 4900ms;
+          animation-delay: 4900ms;
+}
+
+.media--card:nth-child(99n) {
+  -webkit-animation-delay: 4950ms;
+          animation-delay: 4950ms;
+}
+
+.media--card:nth-child(100n) {
+  -webkit-animation-delay: 5000ms;
+          animation-delay: 5000ms;
+}
+
 .contact-button-div {
   position: fixed;
   width: 100%;
   bottom: 5%;
   left: 0;
+  z-index: 100;
 }
 
 .contact-button {
@@ -441,6 +976,13 @@ main {
   padding: 10px 15px;
   border-radius: 0.25rem;
   font-weight: 600;
+}
+
+.contact-button:hover {
+  cursor: pointer;
+  background-color: #D3573C;
+  -webkit-transition: all ease 250ms;
+  transition: all ease 250ms;
 }
 
 .modal--background {
