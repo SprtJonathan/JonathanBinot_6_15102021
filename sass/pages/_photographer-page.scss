@@ -41,6 +41,33 @@
     height: 100px;
     margin-bottom: 25px;
   }
+
+  &--static-text {
+    display: none;
+    &--div {
+      display: flex;
+      width: fit-content;
+      position: fixed;
+      flex-direction: row;
+      z-index: 101;
+      background-color: #db8876;
+      padding: 0.5rem 1rem;
+      border-radius: 5px 5px 0px 0px;
+      bottom: 0;
+      right: 2rem;
+    }
+    &--text {
+      padding: 0px 1.5rem;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    &--text:nth-child(1) {
+      margin-right: 1rem;
+    }
+    &--text:nth-child(2) {
+      margin-left: 1rem;
+    }
+  }
 }
 
 .media {
@@ -215,6 +242,42 @@
   }
 }
 
+.lightbox {
+  &--modal {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: 102;
+    left: 0;
+    top: 0;
+    
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &--close-button {
+    margin: 2rem;
+    margin-left: 90%;
+    font-size: 20px;
+  }
+  &--carousel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+  }
+  &--image {
+    &--title {
+      margin: auto;
+      color: $primary-color;
+    }
+  }
+}
+
 /*Affichage tablette*/
 @media (min-width: 768px) {
   .media {
@@ -235,6 +298,9 @@
     &--section {
       width: 90%;
       background-color: whitesmoke;
+    }
+    &--static-text {
+      display: block;
     }
   }
   .media {

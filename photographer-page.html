@@ -46,7 +46,12 @@
 
       <aside id="order-by-aside" class="media--select">
         <label for="order-by">Trier par</label>
-        <select name="order-by" id="order-by" class="media--select--select" onchange="orderMediaSelect()">
+        <select
+          name="order-by"
+          id="order-by"
+          class="media--select--select"
+          onchange="orderMediaSelect()"
+        >
           <option value="likes" class="media--select--option" selected>
             Popularité
           </option>
@@ -54,6 +59,34 @@
           <option value="title" class="media--select--option">Titre</option>
         </select>
       </aside>
+
+      <aside
+        id="photographer-static-text"
+        class="photographer-page--static-text"
+      >
+        <div class="photographer-page--static-text--div">
+          <p
+            id="photographer-total-likes"
+            class="photographer-page--static-text--text"
+          ></p>
+          <p
+            id="photographer-price"
+            class="photographer-page--static-text--text"
+          ></p>
+        </div>
+      </aside>
+
+      <section id="lightbox-modal" class="lightbox--modal">
+        <span id="lightbox-close" class="lightbox--close-button">X</span>
+        <div id="lightbox-carousel" class="lightbox--carousel">
+          <div>previous</div>
+          <div>image</div>
+          <div>next</div>
+        </div>
+        <span id="lightbox-image-title" class="lightbox--image--title"
+          >Error : Image not found</span
+        >
+      </section>
 
       <div id="form-background" class="modal--background">
         <div id="modal-body" class="modal--body">

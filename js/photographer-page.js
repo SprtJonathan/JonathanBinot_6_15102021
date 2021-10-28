@@ -8,7 +8,7 @@ const photographerMediaSection = document.getElementById(
   "photographer-media-section"
 );
 
-let totalLike = 0;
+let totalLikes = 0;
 
 let photographer = "";
 
@@ -136,7 +136,7 @@ function displayPage(sorter) {
 
         console.log(media);
 
-        totalLike += media.likes;
+        totalLikes += media.likes;
 
         // Récupération des images du photographe
 
@@ -149,16 +149,16 @@ function displayPage(sorter) {
         // Pattern Factory pour créer des vidéos ou photos selon la nature du média
         function generateMediaTag() {
           if (media.video == undefined) {
-            return `<img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`;
+            return `<a href="#"> <img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/> </a>`;
           }
           return `<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
         }
 
         // Création d'un bloc figure pour chaque média du photographe
         photographerMediaSection.innerHTML += `
-      <figure class="media--card" tabindex="${
-        media.photographerId
-      }" aria-label="Le média de ${photographer.name} se nomme : ${
+      <figure class="media--card" tabindex="${media.photographerId}" id="card-${
+          media.photographerId
+        }" aria-label="Le média de ${photographer.name} se nomme : ${
           media.title
         }">
         ${generateMediaTag()}
@@ -181,6 +181,14 @@ function displayPage(sorter) {
         </figcaption>
       </figure>`;
       }
+
+      const totalLikesText = document.getElementById(
+        "photographer-total-likes"
+      );
+
+      const priceText = document.getElementById("photographer-price");
+
+      totalLikesText.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>';
+      priceText.textContent = photographer.price + "€ / jour";
     });
-  return 0;
 }
