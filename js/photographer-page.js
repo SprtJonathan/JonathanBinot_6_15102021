@@ -149,9 +149,9 @@ function displayPage(sorter) {
         // Pattern Factory pour créer des vidéos ou photos selon la nature du média
         function generateMediaTag() {
           if (media.video == undefined) {
-            return `<a href="#"> <img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/> </a>`;
+            return `<a class="media--link" href="#"> <img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/> </a>`;
           }
-          return `<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
+          return `<a class="media--link" href="#"> <video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video> </a>`;
         }
 
         // Création d'un bloc figure pour chaque média du photographe

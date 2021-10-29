@@ -111,8 +111,11 @@
     animation-fill-mode: both;
     width: 100%;
   }
+  &--link {
+    width: 100%;
+  }
   &--image {
-    width: 90%;
+    width: 100%;
     height: 190px;
     border-radius: 5px;
     object-fit: cover;
@@ -282,7 +285,7 @@
 @media (min-width: 768px) {
   .media {
     &--image {
-      height: 300px;
+      height: 400px;
     }
   }
   .modal {
