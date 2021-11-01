@@ -137,8 +137,25 @@
   &--like-counter {
     display: flex;
     align-self: center;
+    z-index: 50;
     &--span {
       margin: 0px 5px;
+    }
+    &--block {
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      justify-self: center;
+      align-self: center;
+      align-items: center;
+      align-content: center;
+      transition: all ease 200ms;
+      &:hover {
+        transform: scale(1.1, 1.1);
+        transition: all ease 200ms;
+        color: red;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -255,7 +272,7 @@
     z-index: 102;
     left: 0;
     top: 0;
-    
+
     flex-direction: column;
     justify-content: space-around;
   }

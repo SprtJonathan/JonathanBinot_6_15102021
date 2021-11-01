@@ -64,7 +64,7 @@ function displayPage(sorter) {
         <blockquote tabindex="5" class="photographer-page--tagline">${photographer.tagline}</blockquote>
         <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
         </div>
-        <div id="contact-button" class="contact-button-div"><span id="contact-button" class="contact-button">Contactez-moi</span></div>
+        <div id="contact-button-block" class="contact-button-div"><span id="contact-button" class="contact-button">Contactez-moi</span></div>
         <img id="${photographer.id}-profilePicture" class="photographer-page--picture photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="7"/>
         `;
 
@@ -168,7 +168,7 @@ function displayPage(sorter) {
           }" aria-label=" le titre de l'oeuvre est ${media.titre}">
             ${media.title}
           </p>
-          <div class="media--like-counter" tabindex="${media.photographerId}">
+          <div class="media--like-counter--block" id="like-div-${media.id}" tabindex="${media.photographerId}">
             <span class="media--like-counter--span" id="like-counter-${
               media.id
             }" aria-label="il à été aimé ${media.likes} fois ">${
@@ -180,6 +180,28 @@ function displayPage(sorter) {
           </div>
         </figcaption>
       </figure>`;
+
+        photographerMediaSection.addEventListener("click", incrementLikes);
+
+        function incrementLikes(e) {
+          if (e.target && e.target.id == `like-div-${media.id}` || e.target.id == `like-media-${media.id}`) {
+            const likesText = document.getElementById(
+              `like-counter-${media.id}`
+            );
+            let likesValue = parseInt(likesText.innerHTML);
+            console.log(likesValue);
+            likesValue++;
+            likesText.innerHTML = likesValue;
+            refreshLikesCounter();
+          } else {
+            console.log(e.target.id);
+          }
+        }
+
+        function refreshLikesCounter() {
+          totalLikes++;
+          totalLikesText.innerHTML = totalLikes;
+        }
       }
 
       const totalLikesText = document.getElementById(
