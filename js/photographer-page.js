@@ -149,9 +149,9 @@ function displayPage(sorter) {
         // Pattern Factory pour créer des vidéos ou photos selon la nature du média
         function generateMediaTag() {
           if (media.video == undefined) {
-            return `<a class="media--link" href="#"> <img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/> </a>`;
+            return (`<img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`);
           }
-          return `<a class="media--link" href="#"> <video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video> </a>`;
+          return (`<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`);
         }
 
         // Création d'un bloc figure pour chaque média du photographe
@@ -168,7 +168,9 @@ function displayPage(sorter) {
           }" aria-label=" le titre de l'oeuvre est ${media.titre}">
             ${media.title}
           </p>
-          <div class="media--like-counter--block" id="like-div-${media.id}" tabindex="${media.photographerId}">
+          <div class="media--like-counter--block" id="like-div-${
+            media.id
+          }" tabindex="${media.photographerId}">
             <span class="media--like-counter--span" id="like-counter-${
               media.id
             }" aria-label="il à été aimé ${media.likes} fois ">${
@@ -181,25 +183,52 @@ function displayPage(sorter) {
         </figcaption>
       </figure>`;
 
-        photographerMediaSection.addEventListener("click", incrementLikes);
+        photographerMediaSection.addEventListener("click", incrementLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
 
+        let isLiked = false; // Variable permettant de vérifier si un élément est déjà liké
+
+        // Fonction permettant d'incrémenter le nombre de likes d'une photo
         function incrementLikes(e) {
-          if (e.target && e.target.id == `like-div-${media.id}` || e.target.id == `like-media-${media.id}`) {
-            const likesText = document.getElementById(
-              `like-counter-${media.id}`
-            );
-            let likesValue = parseInt(likesText.innerHTML);
-            console.log(likesValue);
-            likesValue++;
-            likesText.innerHTML = likesValue;
-            refreshLikesCounter();
+          // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
+          if (
+            (e.target && e.target.id == `like-div-${media.id}`) ||
+            e.target.id == `like-counter-${media.id}` ||
+            e.target.id == `like-media-${media.id}`
+          ) {
+            // Si l'élement n'a pas déjà été liké, alors on effectue la fonction d'incrémentation
+            if (!isLiked) {
+              const likesText = document.getElementById(
+                `like-counter-${media.id}`
+              );
+              let likesValue = parseInt(likesText.innerHTML);
+              console.log(likesValue);
+              likesValue++;
+              likesText.innerHTML = likesValue;
+              isLiked = true;
+              refreshLikesCounter(1);
+            } else {
+              // Sinon on le décrémente en appelant la fonction chargée de le faire
+              decrementLikes();
+            }
           } else {
             console.log(e.target.id);
           }
         }
 
-        function refreshLikesCounter() {
-          totalLikes++;
+        // Fonction permettant de décrémenter le nombre de likes
+        function decrementLikes(e) {
+          const likesText = document.getElementById(`like-counter-${media.id}`);
+          let likesValue = parseInt(likesText.innerHTML);
+          console.log(likesValue);
+          likesValue--;
+          likesText.innerHTML = likesValue;
+          isLiked = false;
+          refreshLikesCounter(-1);
+        }
+
+        // Fonction permettant de rafraîchir le nombre total de likes selon un paramètre correspondant au nombre à ajouter
+        function refreshLikesCounter(value) {
+          totalLikes += value;
           totalLikesText.innerHTML = totalLikes;
         }
       }
@@ -212,5 +241,21 @@ function displayPage(sorter) {
 
       totalLikesText.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>';
       priceText.textContent = photographer.price + "€ / jour";
+
+      // Lightbox
+
+      mediaCreated.addEventListener("click", launchLightbox);
+
+      const lightboxModal = document.getElementById("lightbox-modal");
+      const lightboxImage = document.getElementById("lightbox-image");
+
+      function launchLightbox(e) {
+        if (e.target.id.startsWith("media-img-")) {
+          let pictureId = e.target.id.split("-").pop();
+          let media = mediaData.find((element) => element.id == pictureId);
+          lightboxImage.innerHTML = mediaCreated;
+          lightboxModal.style.display = "flex";
+        }
+      }
     });
 }
