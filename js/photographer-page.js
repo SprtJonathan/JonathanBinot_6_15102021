@@ -147,11 +147,11 @@ function displayPage(sorter) {
         console.log(filteredMedia);
 
         // Pattern Factory pour créer des vidéos ou photos selon la nature du média
-        function generateMediaTag() {
+        function generateMediaTag(id) {
           if (media.video == undefined) {
-            return (`<img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`);
+            return (`<img class='media--image' id="media-img-${id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`);
           }
-          return (`<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`);
+          return (`<video controls class='media--image' id="media-img-${id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`);
         }
 
         // Création d'un bloc figure pour chaque média du photographe
@@ -161,7 +161,7 @@ function displayPage(sorter) {
         }" aria-label="Le média de ${photographer.name} se nomme : ${
           media.title
         }">
-        ${generateMediaTag()}
+        ${generateMediaTag(media.id)}
         <figcaption class="media--image--description">
           <p tabindex="${
             media.photographerId
@@ -244,16 +244,25 @@ function displayPage(sorter) {
 
       // Lightbox
 
-      mediaCreated.addEventListener("click", launchLightbox);
+      photographerMediaSection.addEventListener("click", launchLightbox);
 
       const lightboxModal = document.getElementById("lightbox-modal");
       const lightboxImage = document.getElementById("lightbox-image");
+      const lightboxClose = document.getElementById("lightbox-close");
+
+      lightboxClose.addEventListener("click", closeLightbox);
+
+      function closeLightbox() {
+        lightboxModal.style.display = "none";
+      }
 
       function launchLightbox(e) {
         if (e.target.id.startsWith("media-img-")) {
           let pictureId = e.target.id.split("-").pop();
           let media = mediaData.find((element) => element.id == pictureId);
-          lightboxImage.innerHTML = mediaCreated;
+          console.log(pictureId)
+          console.log(media)
+          lightboxImage.innerHTML = generateMediaTag(pictureId);
           lightboxModal.style.display = "flex";
         }
       }
