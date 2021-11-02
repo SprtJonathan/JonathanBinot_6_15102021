@@ -146,42 +146,8 @@ function displayPage(sorter) {
 
         console.log(filteredMedia);
 
-        // Pattern Factory pour créer des vidéos ou photos selon la nature du média
-        function generateMediaTag(id) {
-          if (media.video == undefined) {
-            return (`<img class='media--image' id="media-img-${id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`);
-          }
-          return (`<video controls class='media--image' id="media-img-${id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`);
-        }
-
         // Création d'un bloc figure pour chaque média du photographe
-        photographerMediaSection.innerHTML += `
-      <figure class="media--card" tabindex="${media.photographerId}" id="card-${
-          media.photographerId
-        }" aria-label="Le média de ${photographer.name} se nomme : ${
-          media.title
-        }">
-        ${generateMediaTag(media.id)}
-        <figcaption class="media--image--description">
-          <p tabindex="${
-            media.photographerId
-          }" aria-label=" le titre de l'oeuvre est ${media.titre}">
-            ${media.title}
-          </p>
-          <div class="media--like-counter--block" id="like-div-${
-            media.id
-          }" tabindex="${media.photographerId}">
-            <span class="media--like-counter--span" id="like-counter-${
-              media.id
-            }" aria-label="il à été aimé ${media.likes} fois ">${
-          media.likes
-        }</span>
-            <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${
-              media.id
-            }"></i></span>
-          </div>
-        </figcaption>
-      </figure>`;
+        photographerMediaSection.innerHTML += createMediaHTMLCode(media);
 
         photographerMediaSection.addEventListener("click", incrementLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
 
@@ -244,13 +210,19 @@ function displayPage(sorter) {
 
       // Lightbox
 
-      photographerMediaSection.addEventListener("click", launchLightbox);
-
       const lightboxModal = document.getElementById("lightbox-modal");
       const lightboxImage = document.getElementById("lightbox-image");
       const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxPrevious = document.getElementById("lightbox-previous");
+      const lightboxNext = document.getElementById("lightbox-next");
+      const lightboxTitle = document.getElementById("lightbox-title");
 
+      photographerMediaSection.addEventListener("click", launchLightbox);
       lightboxClose.addEventListener("click", closeLightbox);
+      lightboxPrevious.addEventListener("click", previousPicture);
+      lightboxNext.addEventListener("click", nextPicture);
+
+      let currentMedia;
 
       function closeLightbox() {
         lightboxModal.style.display = "none";
@@ -260,10 +232,34 @@ function displayPage(sorter) {
         if (e.target.id.startsWith("media-img-")) {
           let pictureId = e.target.id.split("-").pop();
           let media = mediaData.find((element) => element.id == pictureId);
-          console.log(pictureId)
-          console.log(media)
-          lightboxImage.innerHTML = generateMediaTag(pictureId);
+          currentMedia = media;
+          console.log(pictureId);
+          console.log(media);
+          lightboxImage.innerHTML = generateMediaTag(media);
+          lightboxTitle.textContent = currentMedia.title;
           lightboxModal.style.display = "flex";
+        }
+      }
+
+      function previousPicture() {
+        let index = mediaData.indexOf(currentMedia);
+        console.log(index);
+        let previousMedia = mediaData[index - 1];
+        currentMedia = previousMedia;
+
+        if (currentMedia != undefined) {
+          lightboxImage.innerHTML = generateMediaTag(currentMedia);
+          lightboxTitle.textContent = currentMedia.title;
+        }
+      }
+      function nextPicture() {
+        let index = mediaData.indexOf(currentMedia);
+        let nextMedia = mediaData[index + 1];
+        currentMedia = nextMedia;
+
+        if (currentMedia != undefined) {
+          lightboxImage.innerHTML = generateMediaTag(currentMedia);
+          lightboxTitle.textContent = currentMedia.title;
         }
       }
     });

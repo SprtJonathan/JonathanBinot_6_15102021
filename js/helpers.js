@@ -13,3 +13,39 @@ function createHTMLCode(photographer) {
 `;
   return photographerHtmlCode;
 }
+
+// Pattern Factory pour créer des vidéos ou photos selon la nature du média
+function generateMediaTag(media) {
+  if (media.video == undefined) {
+    return `<img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`;
+  }
+  return `<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
+}
+
+function createMediaHTMLCode(media) {
+  const mediaHtmlCode = `
+  <figure class="media--card" tabindex="${media.photographerId}" id="card-${
+    media.photographerId
+  }" aria-label="Le média de ${photographer.name} se nomme : ${media.title}">
+    ${generateMediaTag(media)}
+    <figcaption class="media--image--description">
+      <p tabindex="${
+        media.photographerId
+      }" aria-label=" le titre de l'oeuvre est ${media.titre}">
+        ${media.title}
+      </p>
+      <div class="media--like-counter--block" id="like-div-${
+        media.id
+      }" tabindex="${media.photographerId}">
+        <span class="media--like-counter--span" id="like-counter-${
+          media.id
+        }" aria-label="il à été aimé ${media.likes} fois ">${media.likes}</span>
+        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${
+          media.id
+        }"></i></span>
+      </div>
+    </figcaption>
+  </figure>`;
+
+  return mediaHtmlCode;
+}
