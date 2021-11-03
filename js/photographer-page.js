@@ -247,6 +247,13 @@ function displayPage(sorter) {
         let previousMedia = mediaData[index - 1];
         currentMedia = previousMedia;
 
+        if (index <= 0) {
+          lightboxPrevious.className =
+            "lightbox--button-previous-button--greyed";
+        } else {
+          lightboxPrevious.className = "lightbox--button-previous-button";
+        }
+
         if (currentMedia != undefined) {
           lightboxImage.innerHTML = generateMediaTag(currentMedia);
           lightboxTitle.textContent = currentMedia.title;

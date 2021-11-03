@@ -8,3 +8,17 @@
         opacity: 1;
     }
 }
+
+@keyframes expand {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    to {
+        height: 1.2rem;
+        opacity: 1;
+    }
+}
