@@ -487,6 +487,8 @@ main {
      object-fit: cover;
   -o-object-position: 50% 20%;
      object-position: 50% 20%;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .media--image--description {
@@ -502,6 +504,14 @@ main {
           justify-content: space-between;
   width: 90%;
   color: #901c1c;
+}
+
+.media--image:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .media--video {
@@ -1124,6 +1134,10 @@ main {
   font-size: 2rem;
 }
 
+.modal--header--close:hover {
+  cursor: pointer;
+}
+
 .modal--header--text {
   font-weight: 400;
   font-size: 2rem;
@@ -1212,6 +1226,10 @@ main {
   margin: 2rem;
   margin-left: 90%;
   font-size: 20px;
+}
+
+.lightbox--close-button:hover {
+  cursor: pointer;
 }
 
 .lightbox--carousel {

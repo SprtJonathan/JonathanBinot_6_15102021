@@ -120,12 +120,18 @@
     border-radius: 5px;
     object-fit: cover;
     object-position: 50% 20%;
+    transition: all 200ms ease;
     &--description {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 90%;
       color: $primary-color;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1,1.1);
+      transition: all 200ms ease;
     }
   }
   &--video {
@@ -213,6 +219,9 @@
     &--close {
       color: white;
       font-size: 2rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
     &--text {
       font-weight: 400;
@@ -238,7 +247,7 @@
   &--contact-form {
     display: flex;
     flex-direction: column;
-    width: 100%;;
+    width: 100%;
     margin: auto;
     margin-top: 1rem;
     &--label {
@@ -281,6 +290,9 @@
     margin: 2rem;
     margin-left: 90%;
     font-size: 20px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &--carousel {
     display: flex;
@@ -292,7 +304,6 @@
     align-items: center;
   }
   &--previous-button {
-    
     &--greyed {
       color: grey;
     }
