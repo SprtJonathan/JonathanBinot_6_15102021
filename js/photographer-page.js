@@ -64,7 +64,7 @@ function displayPage(sorter) {
         <blockquote tabindex="5" class="photographer-page--tagline">${photographer.tagline}</blockquote>
         <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
         </div>
-        <div id="contact-button-block" class="contact-button-div"><span id="contact-button" class="contact-button">Contactez-moi</span></div>
+        <div id="contact-button-block" class="contact-button-div"><span id="contact-button" class="button">Contactez-moi</span></div>
         <img id="${photographer.id}-profilePicture" class="photographer-page--picture photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="7"/>
         `;
 
@@ -235,7 +235,7 @@ function displayPage(sorter) {
           currentMedia = media;
           console.log(pictureId);
           console.log(media);
-          lightboxImage.innerHTML = generateMediaTag(media);
+          lightboxImage.innerHTML = generateMediaTag(media, "lightbox--image");
           lightboxTitle.textContent = currentMedia.title;
           lightboxModal.style.display = "flex";
         }
@@ -255,7 +255,7 @@ function displayPage(sorter) {
         }
 
         if (currentMedia != undefined) {
-          lightboxImage.innerHTML = generateMediaTag(currentMedia);
+          lightboxImage.innerHTML = generateMediaTag(currentMedia, "lightbox--image");
           lightboxTitle.textContent = currentMedia.title;
         }
       }
@@ -265,7 +265,7 @@ function displayPage(sorter) {
         currentMedia = nextMedia;
 
         if (currentMedia != undefined) {
-          lightboxImage.innerHTML = generateMediaTag(currentMedia);
+          lightboxImage.innerHTML = generateMediaTag(currentMedia, "lightbox--image");
           lightboxTitle.textContent = currentMedia.title;
         }
       }

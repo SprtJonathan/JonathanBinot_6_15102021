@@ -15,11 +15,11 @@ function createHTMLCode(photographer) {
 }
 
 // Pattern Factory pour créer des vidéos ou photos selon la nature du média
-function generateMediaTag(media) {
+function generateMediaTag(media, cssClass) {
   if (media.video == undefined) {
-    return `<img class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`;
+    return `<img class="${cssClass}" id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`;
   }
-  return `<video controls class='media--image' id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
+  return `<video controls class="${cssClass}" id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
 }
 
 function createMediaHTMLCode(media) {
@@ -27,7 +27,7 @@ function createMediaHTMLCode(media) {
   <figure class="media--card" tabindex="${media.photographerId}" id="card-${
     media.photographerId
   }" aria-label="Le média de ${photographer.name} se nomme : ${media.title}">
-    ${generateMediaTag(media)}
+    ${generateMediaTag(media, "media--image")}
     <figcaption class="media--image--description">
       <p tabindex="${
         media.photographerId

@@ -28,7 +28,7 @@
     font-weight: 500;
   }
   &--tagline {
-    color: gray;
+    color: $grey-text;
     margin: 15px 0px;
   }
   &--lblock {
@@ -180,7 +180,7 @@
   z-index: 100;
 }
 
-.contact-button {
+/*.contact-button {
   display: flex;
   width: fit-content;
   text-align: center;
@@ -196,7 +196,7 @@
     background-color: $secondary-color;
     transition: all ease 250ms;
   }
-}
+}*/
 
 .modal {
   &--background {
@@ -253,7 +253,7 @@
     &--label {
       margin: 0.5rem 0px;
       font-size: 1.5rem;
-      color: #312e2e;
+      color: $grey-text;
     }
     &--input {
       border: 0px;
@@ -278,7 +278,7 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    background-color: white;
+    background-color: $white-background;
     z-index: 102;
     left: 0;
     top: 0;
@@ -302,13 +302,17 @@
     justify-content: space-around;
     align-content: center;
     align-items: center;
+    ;
   }
   &--previous-button {
     &--greyed {
-      color: grey;
+      color: $grey-text;
     }
   }
   &--image {
+    height: 100%;
+    width: auto;
+    margin: auto;
     &--title {
       margin: auto;
       color: $primary-color;
@@ -335,7 +339,7 @@
   .photographer-page {
     &--section {
       width: 90%;
-      background-color: whitesmoke;
+      background-color: $white-background;
     }
     &--static-text {
       display: block;

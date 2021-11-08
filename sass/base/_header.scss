@@ -32,7 +32,7 @@ ul {
 li,
 .tags {
   color: $primary-color;
-  border: 0.12rem rgba(128, 128, 128, 0.25) solid;
+  border: 0.12rem $grey-text solid;
   border-radius: 25px;
   padding: 0.2rem 0.5rem;
   margin: 0.1rem;
@@ -43,7 +43,7 @@ li,
 
 li:hover,
 .tags:hover {
-  color: whitesmoke;
+  color: $white-background;
   background-color: $primary-color;
   cursor: pointer;
 
