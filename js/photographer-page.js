@@ -22,6 +22,9 @@ let orderMediaSelectedValue = document.getElementById("order-by").value;
 
 let mediaData;
 
+orderMediaSelect();
+
+// Fonction permettant de trier les photos selon les critères
 function orderMediaSelect() {
   orderMediaSelectedValue = document.getElementById("order-by").value;
   console.log(orderMediaSelectedValue);
@@ -30,9 +33,8 @@ function orderMediaSelect() {
   return orderMediaSelectedValue;
 }
 
-displayPage(orderMediaSelectedValue);
-
 function displayPage(sorter) {
+  totalLikes = 0;
   fetch(dataLocation)
     .then((data) => {
       return data.json();
@@ -149,55 +151,51 @@ function displayPage(sorter) {
         // Création d'un bloc figure pour chaque média du photographe
         photographerMediaSection.innerHTML += createMediaHTMLCode(media);
 
-        photographerMediaSection.addEventListener("click", incrementLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
+        photographerMediaSection.addEventListener("click", setLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
 
         let isLiked = false; // Variable permettant de vérifier si un élément est déjà liké
 
         // Fonction permettant d'incrémenter le nombre de likes d'une photo
-        function incrementLikes(e) {
-          console.log("lid est " + e.target.id + "et mediaid est " + media.id)
+        function setLikes(e) {
           // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
           if (
-            (e.target && e.target.id == `like-div-${media.id}`) ||
-            e.target.id == `like-counter-${media.id}` ||
-            e.target.id == `like-media-${media.id}`
+            (e.target && e.target.id == `like-media-${media.id}`) ||
+            (e.target && e.target.id == `like-div-${media.id}`)
           ) {
             // Si l'élement n'a pas déjà été liké, alors on effectue la fonction d'incrémentation
             if (!isLiked) {
-              const likesText = document.getElementById(
-                `like-counter-${media.id}`
-              );
-              let likesValue = parseInt(likesText.innerHTML);
-              console.log(likesValue);
-              likesValue = likesValue + 1;
-              likesText.innerHTML = likesValue;
-              isLiked = true;
-              refreshLikesCounter(1);
+              isLiked = !isLiked;
+              tweakLikes(media, 1);
             } else {
               // Sinon on le décrémente en appelant la fonction chargée de le faire
-              decrementLikes();
+              isLiked = !isLiked;
+              tweakLikes(media, -1);
             }
-          } else {
-            console.log(e.target.id);
           }
         }
+      }
 
-        // Fonction permettant de décrémenter le nombre de likes
-        function decrementLikes(e) {
-          const likesText = document.getElementById(`like-counter-${media.id}`);
-          let likesValue = parseInt(likesText.innerHTML);
-          console.log(likesValue);
-          likesValue = likesValue - 1;
-          likesText.innerHTML = likesValue;
-          isLiked = false;
-          refreshLikesCounter(-1);
-        }
+      function tweakLikes(media, value) {
+        const likesText = document.getElementById(`like-counter-${media.id}`);
+        let likesValue = parseInt(likesText.innerHTML);
+        console.log(likesValue);
+        let newLikesValue = likesValue + value;
+        likesText.innerHTML = newLikesValue;
+        console.log(
+          "on ajoute " +
+            value +
+            " à " +
+            likesValue +
+            ". Et on a donc " +
+            newLikesValue
+        );
+        refreshLikesCounter(value);
+      }
 
-        // Fonction permettant de rafraîchir le nombre total de likes selon un paramètre correspondant au nombre à ajouter
-        function refreshLikesCounter(value) {
-          totalLikes += value;
-          totalLikesText.innerHTML = totalLikes;
-        }
+      // Fonction permettant de rafraîchir le nombre total de likes selon un paramètre correspondant au nombre à ajouter
+      function refreshLikesCounter(value) {
+        totalLikes += value;
+        totalLikesText.innerHTML = totalLikes;
       }
 
       const totalLikesText = document.getElementById(
@@ -222,6 +220,22 @@ function displayPage(sorter) {
       lightboxClose.addEventListener("click", closeLightbox);
       lightboxPrevious.addEventListener("click", previousPicture);
       lightboxNext.addEventListener("click", nextPicture);
+      lightboxClose.addEventListener("click", closeLightbox);
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          previousPicture();
+        }
+      });
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          nextPicture();
+        }
+      });
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+      });
 
       let currentMedia;
 
@@ -256,7 +270,10 @@ function displayPage(sorter) {
         }
 
         if (currentMedia != undefined) {
-          lightboxImage.innerHTML = generateMediaTag(currentMedia, "lightbox--image");
+          lightboxImage.innerHTML = generateMediaTag(
+            currentMedia,
+            "lightbox--image"
+          );
           lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
         }
       }
@@ -266,7 +283,10 @@ function displayPage(sorter) {
         currentMedia = nextMedia;
 
         if (currentMedia != undefined) {
-          lightboxImage.innerHTML = generateMediaTag(currentMedia, "lightbox--image");
+          lightboxImage.innerHTML = generateMediaTag(
+            currentMedia,
+            "lightbox--image"
+          );
           lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
         }
       }

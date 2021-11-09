@@ -130,7 +130,7 @@
     }
     &:hover {
       cursor: pointer;
-      transform: scale(1.1,1.1);
+      transform: scale(1.1, 1.1);
       transition: all 200ms ease;
     }
   }
@@ -302,14 +302,12 @@
     justify-content: space-around;
     align-content: center;
     align-items: center;
-    ;
   }
   &--previous-button {
     min-width: 10%;
     &--greyed {
       color: $grey-text;
     }
-  }
   }
   &--next-button {
     min-width: 10%;

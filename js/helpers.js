@@ -31,18 +31,12 @@ function createMediaHTMLCode(media) {
     <figcaption class="media--image--description">
       <p tabindex="${
         media.photographerId
-      }" aria-label=" le titre de l'oeuvre est ${media.titre}">
+      }" aria-label="La photographie a pour titre ${media.title}">
         ${media.title}
       </p>
-      <div class="media--like-counter--block" id="like-div-${
-        media.id
-      }" tabindex="${media.photographerId}">
-        <span class="media--like-counter--span" id="like-counter-${
-          media.id
-        }" aria-label="il à été aimé ${media.likes} fois ">${media.likes}</span>
-        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${
-          media.id
-        }"></i></span>
+      <div class="media--like-counter--block" id="like-div-${media.id}" tabindex="${media.photographerId}">
+        <span class="media--like-counter--span" id="like-counter-${media.id}" aria-label="il à été aimé ${media.likes} fois ">${media.likes}</span>
+        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${media.id}"></i></span>
       </div>
     </figcaption>
   </figure>`;

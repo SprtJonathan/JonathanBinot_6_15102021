@@ -132,8 +132,8 @@ li,
   font-size: 14px;
 }
 
-li:hover,
-.tags:hover {
+li:hover, li:focus,
+.tags:hover, .tags:focus {
   color: #fafafa;
   background-color: #901c1c;
   cursor: pointer;
@@ -293,6 +293,15 @@ main {
   margin: auto;
   width: auto;
   padding: 2rem;
+}
+
+.photographer--article:hover {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-box-shadow: black 1px 2px 2px;
+          box-shadow: black 1px 2px 2px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .photographer--name {
@@ -1320,6 +1329,14 @@ main {
 }
 
 .lightbox--previous-button--greyed {
+  color: #525252;
+}
+
+.lightbox--next-button {
+  min-width: 10%;
+}
+
+.lightbox--next-button--greyed {
   color: #525252;
 }
 
