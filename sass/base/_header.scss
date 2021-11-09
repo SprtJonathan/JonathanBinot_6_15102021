@@ -41,8 +41,8 @@ li,
   font-size: 14px;
 }
 
-li:hover,
-.tags:hover {
+li:hover, li:focus,
+.tags:hover, .tags:focus {
   color: $white-background;
   background-color: $primary-color;
   cursor: pointer;

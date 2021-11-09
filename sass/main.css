@@ -1315,6 +1315,10 @@ main {
           align-items: center;
 }
 
+.lightbox--previous-button {
+  min-width: 10%;
+}
+
 .lightbox--previous-button--greyed {
   color: #525252;
 }

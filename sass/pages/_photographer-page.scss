@@ -305,6 +305,14 @@
     ;
   }
   &--previous-button {
+    min-width: 10%;
+    &--greyed {
+      color: $grey-text;
+    }
+  }
+  }
+  &--next-button {
+    min-width: 10%;
     &--greyed {
       color: $grey-text;
     }

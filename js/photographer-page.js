@@ -57,7 +57,7 @@ function displayPage(sorter) {
           console.log(photographer);
           photographerSectionArticle.innerHTML = `
         <div class="photographer-page--lblock">
-        <h1 id="photographer-name" class="photographer-page--name" aria-label="Le photographe sélectionné">
+        <h1 id="photographer-name" class="photographer-page--name" aria-label="Le photographe sélectionné est ${photographer.name}" tabindex="3">
           ${photographer.name}
         </h1>
         <h3 tabindex="4" class="photographer-page--location">${photographer.city}, ${photographer.country}</h3>
@@ -155,6 +155,7 @@ function displayPage(sorter) {
 
         // Fonction permettant d'incrémenter le nombre de likes d'une photo
         function incrementLikes(e) {
+          console.log("lid est " + e.target.id + "et mediaid est " + media.id)
           // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
           if (
             (e.target && e.target.id == `like-div-${media.id}`) ||
@@ -168,7 +169,7 @@ function displayPage(sorter) {
               );
               let likesValue = parseInt(likesText.innerHTML);
               console.log(likesValue);
-              likesValue++;
+              likesValue = likesValue + 1;
               likesText.innerHTML = likesValue;
               isLiked = true;
               refreshLikesCounter(1);
@@ -186,7 +187,7 @@ function displayPage(sorter) {
           const likesText = document.getElementById(`like-counter-${media.id}`);
           let likesValue = parseInt(likesText.innerHTML);
           console.log(likesValue);
-          likesValue--;
+          likesValue = likesValue - 1;
           likesText.innerHTML = likesValue;
           isLiked = false;
           refreshLikesCounter(-1);
@@ -236,7 +237,7 @@ function displayPage(sorter) {
           console.log(pictureId);
           console.log(media);
           lightboxImage.innerHTML = generateMediaTag(media, "lightbox--image");
-          lightboxTitle.textContent = currentMedia.title;
+          lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
           lightboxModal.style.display = "flex";
         }
       }
@@ -256,7 +257,7 @@ function displayPage(sorter) {
 
         if (currentMedia != undefined) {
           lightboxImage.innerHTML = generateMediaTag(currentMedia, "lightbox--image");
-          lightboxTitle.textContent = currentMedia.title;
+          lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
         }
       }
       function nextPicture() {
@@ -266,7 +267,7 @@ function displayPage(sorter) {
 
         if (currentMedia != undefined) {
           lightboxImage.innerHTML = generateMediaTag(currentMedia, "lightbox--image");
-          lightboxTitle.textContent = currentMedia.title;
+          lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
         }
       }
     });

@@ -18,7 +18,7 @@
     </div>
 
     <header>
-      <a href="./index.html" class="back-to-index"
+      <a href="./index.html" class="back-to-index" tabindex="2"
         ><img
           id="allPhotographers"
           class="logo"
@@ -27,18 +27,32 @@
       /></a>
       <nav aria-label="Choix des tags pour les photographes">
         <ul class="navigation">
-          <span id="portrait" class="tags" data-filter="portrait"
+          <span id="portrait" class="tags" data-filter="portrait" tabindex="3" aria-label="Cliquez pour filtrer les photographes avec le thème portrait"
             >#Portrait</span
           >
-          <span id="art" class="tags" data-filter="art">#Art</span>
-          <span id="fashion" class="tags" data-filter="fashion">#Fashion</span>
-          <span id="architecture" class="tags" data-filter="architecture"
+          <span id="art" class="tags" data-filter="art" tabindex="4" aria-label="Cliquez pour filtrer les photographes avec le thème art">#Art</span>
+          <span id="fashion" class="tags" data-filter="fashion" tabindex="5" aria-label="Cliquez pour filtrer les photographes avec le thème fashion"
+            >#Fashion</span
+          >
+          <span
+            id="architecture"
+            class="tags"
+            data-filter="architecture"
+            tabindex="6" aria-label="Cliquez pour filtrer les photographes avec le thème architecture"
             >#Architecture</span
           >
-          <span id="travel" class="tags" data-filter="travel">#Travel</span>
-          <span id="sport" class="tags" data-filter="sport">#Sport</span>
-          <span id="animals" class="tags" data-filter="animals">#Animals</span>
-          <span id="events" class="tags" data-filter="events">#Events</span>
+          <span id="travel" class="tags" data-filter="travel" tabindex="7" aria-label="Cliquez pour filtrer les photographes avec le thème voyages"
+            >#Travel</span
+          >
+          <span id="sport" class="tags" data-filter="sport" tabindex="8" aria-label="Cliquez pour filtrer les photographes avec le thème sport"
+            >#Sport</span
+          >
+          <span id="animals" class="tags" data-filter="animals" tabindex="9" aria-label="Cliquez pour filtrer les photographes avec le thème animaux"
+            >#Animals</span
+          >
+          <span id="events" class="tags" data-filter="events" tabindex="10" aria-label="Cliquez pour filtrer les photographes avec le thème évènement"
+            >#Events</span
+          >
         </ul>
       </nav>
     </header>
