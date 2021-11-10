@@ -28,13 +28,14 @@ orderMediaSelect();
 function orderMediaSelect() {
   orderMediaSelectedValue = document.getElementById("order-by").value;
   console.log(orderMediaSelectedValue);
+  
+  totalLikes = 0;
 
   displayPage(orderMediaSelectedValue);
   return orderMediaSelectedValue;
 }
 
 function displayPage(sorter) {
-  totalLikes = 0;
   fetch(dataLocation)
     .then((data) => {
       return data.json();
@@ -151,17 +152,20 @@ function displayPage(sorter) {
         // Création d'un bloc figure pour chaque média du photographe
         photographerMediaSection.innerHTML += createMediaHTMLCode(media);
 
-        photographerMediaSection.addEventListener("click", setLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
+        //photographerMediaSection.addEventListener("click", setLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
+
+        photographerMediaSection.addEventListener("click", (e) => {
+          console.log("click sur " + e.target.id);
+          setLikes(e);
+        }); // Détection du clic sur la séction media pour appeler la fonction des likes
 
         let isLiked = false; // Variable permettant de vérifier si un élément est déjà liké
 
-        // Fonction permettant d'incrémenter le nombre de likes d'une photo
+        // Fonction permettant d'incrémenter ou de décrémenter le nombre de likes d'une photo
         function setLikes(e) {
           // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
-          if (
-            (e.target && e.target.id == `like-media-${media.id}`) ||
-            (e.target && e.target.id == `like-div-${media.id}`)
-          ) {
+          if (e.target && e.target.id == `like-media-${media.id}`) {
+            console.log(e.target.id);
             // Si l'élement n'a pas déjà été liké, alors on effectue la fonction d'incrémentation
             if (!isLiked) {
               isLiked = !isLiked;

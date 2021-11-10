@@ -617,6 +617,24 @@ main {
   margin: 0px 5px;
 }
 
+.media--like-counter--icon {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 200;
+  -webkit-transition: all ease 200ms;
+  transition: all ease 200ms;
+}
+
+.media--like-counter--icon:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition: all ease 200ms;
+  transition: all ease 200ms;
+  color: red;
+  cursor: pointer;
+}
+
 .media--like-counter--block {
   margin: 0;
   padding: 0;
@@ -633,17 +651,6 @@ main {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-transition: all ease 200ms;
-  transition: all ease 200ms;
-}
-
-.media--like-counter--block:hover {
-  -webkit-transform: scale(1.1, 1.1);
-          transform: scale(1.1, 1.1);
-  -webkit-transition: all ease 200ms;
-  transition: all ease 200ms;
-  color: red;
-  cursor: pointer;
 }
 
 .media--card:nth-child(1n) {
