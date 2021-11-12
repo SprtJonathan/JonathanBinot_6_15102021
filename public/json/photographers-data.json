@@ -8,7 +8,8 @@
       "tags": ["portrait", "events", "travel", "animals"],
       "tagline": "Voir le beau dans le quotidien",
       "price": 400,
-      "portrait": "MimiKeel.jpg"
+      "portrait": "MimiKeel.jpg",
+      "description": "Mimi Keel est une photographe de Londres, UK réalisant des portraits, des photos d'évènementiel, de voyage, d'animaux. Sa devise est 'Voir le beau dans le quotidien'"
     },
     {
       "name": "Ellie-Rose Wilkens",
@@ -18,7 +19,8 @@
       "tags": ["sports", "architecture"],
       "tagline": "Capturer des compositions complexes",
       "price": 250,
-      "portrait": "EllieRoseWilkens.jpg"
+      "portrait": "EllieRoseWilkens.jpg",
+      "description": "Ellie-Rose Wilkens est une photographe de Paris, France réalisant des photos sportives, d'architecture. Sa devise est 'Capturer des compositions complexes'"
     },
     {
       "name": "Tracy Galindo",
@@ -28,7 +30,8 @@
       "tags": ["art", "fashion", "events"],
       "tagline": "Photographe freelance",
       "price": 500,
-      "portrait": "TracyGalindo.jpg"
+      "portrait": "TracyGalindo.jpg",
+      "description": "Tracy Galindo est une photographe de Montreal, Canada réalisant des photos d'art, fashion, d'évènements. Sa devise est 'Photographe freelance'"
     },
     {
       "name": "Nabeel Bradford",
@@ -38,7 +41,8 @@
       "tags": ["travel", "portrait"],
       "tagline": "Toujours aller de l'avant",
       "price": 350,
-      "portrait": "NabeelBradford.jpg"
+      "portrait": "NabeelBradford.jpg",
+      "description": "Nabeel Bradford est un photographe de Mexico City, Mexique réalisant des photos de voyages, des portraits. Sa devise est 'Toujours aller de l'avant'"
     },
     {
       "name": "Rhode Dubois",
@@ -48,7 +52,8 @@
       "tags": ["sport", "fashion", "events", "animals"],
       "tagline": "Je crée des souvenirs",
       "price": 275,
-      "portrait": "RhodeDubois.jpg"
+      "portrait": "RhodeDubois.jpg",
+      "description": "Rhode Dubois est une photographe de Barcelone, Espagne réalisant des photos de sport, fashion, d'évènements et d'animaux. Sa devise est 'Je crée des souvenirs'"
     },
     {
       "name": "Marcel Nikolic",
@@ -58,7 +63,8 @@
       "tags": ["travel", "architecture"],
       "tagline": "Toujours à la recherche de LA photo",
       "price": 300,
-      "portrait": "MarcelNikolic.jpg"
+      "portrait": "MarcelNikolic.jpg",
+      "description": "Marcel Nikolic est un photographe de Berlin, Allemagne réalisant des photos de voyage, et d'architecture. Sa devise est 'Toujours à la recherche de LA photo'"
     }
   ],
   "media": [
@@ -70,7 +76,8 @@
       "tags": ["fashion"],
       "likes": 62,
       "date": "2011-12-08",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'une femme portant des vêtements jaunes sur fond d'un terrain de basket sur une plage" 
     },
     {
       "id": 8520927,
@@ -80,7 +87,8 @@
       "tags": ["fashion"],
       "likes": 11,
       "date": "2011-11-06",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'une femme portant des vêtements avec des motifs comportant des feuilles vertes. Elle se trouve au milieu d'une route située sur un pont en ville"
     },
     {
       "id": 9025895,
@@ -90,7 +98,8 @@
       "tags": ["fashion"],
       "likes": 72,
       "date": "2013-08-12",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'une femme portant des vêtements avec un motif jaune, orange, noir, bleu et blanc. L'arrière plan est composé d'un damier noir et blanc."
     },
     {
       "id": 9275938,
@@ -100,7 +109,8 @@
       "tags": ["events"],
       "likes": 69,
       "date": "2018-02-22",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'un belvédère décoré pour un mariage"
     },
     {
       "id": 2053494,
@@ -110,7 +120,8 @@
       "tags": ["events"],
       "likes": 2,
       "date": "2020-05-25",
-      "price": 55
+      "price": 55,
+      "description": "Photo prise lors d'un mariage avec au premier plan les mariés, de dos, et en arrière plan, les invités brandissant des sparklers"
     },
     {
       "id": 7324238,
@@ -120,7 +131,8 @@
       "tags": ["events"],
       "likes": 33,
       "date": "2019-06-12",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'une salle d'évènements avec une table dressée à l'occasion d'un 18ème anniversiare, au milieu de l'image se trouvent des ballons avec deux ballons en forme de 18"
     },
     {
       "id": 8328953,
@@ -130,7 +142,8 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2011-12-08",
-      "price": 100
+      "price": 100,
+      "description": "Vidéo montrant une sculpture en bois représentant un cheval"
     },
     {
       "id": 7502053,
@@ -140,7 +153,8 @@
       "tags": ["art"],
       "likes": 88,
       "date": "2007-05-07",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'art : une porte peinte en bleu avec une personne peinte. Un triangle blanc est au premier plan"
     },
     {
       "id": 8523492,
@@ -150,7 +164,8 @@
       "tags": ["art"],
       "likes": 24,
       "date": "2018-05-05",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'un sous-terrain éclairé par de la lumière violette, les murs comportent des graffitis"
     },
     {
       "id": 75902334,
@@ -160,7 +175,8 @@
       "tags": ["art"],
       "likes": 75,
       "date": "2019-11-25",
-      "price": 55
+      "price": 55,
+      "description": "Photo d'art représentant des oiseaux rouges et bleus regroupés"
     },
 
     {
@@ -171,7 +187,8 @@
       "tags": ["sport"],
       "likes": 52,
       "date": "2013-02-30",
-      "price": 70
+      "price": 70,
+      "description": "Photo représentant un aviron et son équipage en vue du dessus"
     },
     {
       "id": 92758372,
@@ -181,7 +198,8 @@
       "tags": ["fashion"],
       "likes": 58,
       "date": "2018-07-17",
-      "price": 70
+      "price": 70,
+      "description": "Photo représentant deux personnes, l'homme habillé en blanc et la femme habillée en bleu, en train de prendre une pose représentant chacun une aile."
     },
     {
       "id": 32958383,
@@ -191,7 +209,8 @@
       "tags": ["fashion"],
       "likes": 11,
       "date": "2019-08-12",
-      "price": 70
+      "price": 70,
+      "description": "Photo d'une femme habillée en robe rouge et chaussures blanches à rayures noires descendant des escaliers"
     },
     {
       "id": 928587383,
@@ -201,7 +220,8 @@
       "tags": ["events"],
       "likes": 2,
       "date": "2019-01-02",
-      "price": 70
+      "price": 70,
+      "description": "Photo représentant une réunion professionnelle de cinq personnes"
     },
     {
       "id": 725639493,
@@ -211,7 +231,8 @@
       "tags": ["events"],
       "likes": 3,
       "date": "2019-05-20",
-      "price": 70
+      "price": 70,
+      "description": "Photo montrant une personne en train de présenter un produit à sept personnes."
     },
     {
       "id": 23394384,
@@ -221,7 +242,8 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-07-18",
-      "price": 70
+      "price": 70,
+      "description": "Photo d'une musicienne en train de tester son synthétiseur sur une scène"
     },
     {
       "id": 87367293,
@@ -231,7 +253,8 @@
       "tags": ["events"],
       "likes": 23,
       "date": "2018-02-22",
-      "price": 70
+      "price": 70,
+      "description": "Photo d'une chanteuse lors d'un concert"
     },
     {
       "id": 593834784,
@@ -241,7 +264,8 @@
       "tags": ["animals"],
       "likes": 52,
       "date": "2017-03-13",
-      "price": 70
+      "price": 70,
+      "description": "Photo d'un cerf au premier plan, un autre se trouve en arrière plan"
     },
     {
       "id": 83958935,
@@ -251,7 +275,8 @@
       "tags": ["animals"],
       "likes": 52,
       "date": "2016-06-12",
-      "price": 70
+      "price": 70,
+      "description": "Vidéo d'un chiot jouant sur une plage"
     },
 
     {
@@ -262,7 +287,8 @@
       "tags": ["travel"],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45
+      "price": 45,
+      "description": "Vidéo d'un paysage d'une montagne rocailleuse avec une falaise du côté gauche"
     },
     {
       "id": 343423425,
@@ -272,7 +298,8 @@
       "tags": ["travel"],
       "likes": 101,
       "date": "2017-04-03",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'une étendue d'eau chaude où se baignent de nombreuses personnes"
     },
     {
       "id": 73434243,
@@ -282,7 +309,8 @@
       "tags": ["travel"],
       "likes": 99,
       "date": "2018-04-30",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'un paysage où se trouve une route sinueuse"
     },
     {
       "id": 23425523,
@@ -292,7 +320,8 @@
       "tags": ["travel"],
       "likes": 34,
       "date": "2016-04-05",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'un pont donnant sur une forêt"
     },
     {
       "id": 23134513,
@@ -302,7 +331,8 @@
       "tags": ["travel"],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45
+      "price": 45,
+      "description": "Photo prise à bord d'une barque naviguant sur un lac au milieu de montagnes"
     },
     {
       "id": 92352352,
@@ -312,7 +342,8 @@
       "tags": ["portrait"],
       "likes": 66,
       "date": "2018-05-24",
-      "price": 45
+      "price": 45,
+      "description": "Portrait d'une jeune femme rousse"
     },
     {
       "id": 34513453,
@@ -322,7 +353,8 @@
       "tags": ["portait"],
       "likes": 52,
       "date": "2017-04-21",
-      "price": 45
+      "price": 45,
+      "description": "Portrait en noir et blanc d'un homme ayant une coupe afro"
     },
     {
       "id": 23523533,
@@ -332,7 +364,8 @@
       "tags": ["portait"],
       "likes": 95,
       "date": "2018-11-02",
-      "price": 45
+      "price": 45,
+      "description": "Portrait en noir et blanc d'une femme noire aux cheveux blancs courts"
     },
     {
       "id": 525834234,
@@ -342,7 +375,8 @@
       "tags": ["portait"],
       "likes": 25,
       "date": "2019-01-02",
-      "price": 45
+      "price": 45,
+      "description": "Portrait en noir et blanc d'une personne âgée tenant une cigarette dans ses mains"
     },
 
     {
@@ -353,7 +387,8 @@
       "tags": ["travel"],
       "likes": 88,
       "date": "2019-02-03",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'un paysage montagneux et d'une personne se tenant au bord d'une des falaises"
     },
     {
       "id": 625025343,
@@ -363,7 +398,8 @@
       "tags": ["travel"],
       "likes": 85,
       "date": "2019-04-03",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'une ville littorale située sur une falaise constituée de bâtiments colorés et d'un petit port"
     },
     {
       "id": 2525345343,
@@ -373,7 +409,8 @@
       "tags": ["portait"],
       "likes": 34,
       "date": "2019-04-07",
-      "price": 45
+      "price": 45,
+      "description": "Portrait en noir et blanc d'une jeune fille sur le sol se tenant les joues"
     },
     {
       "id": 2523434634,
@@ -383,7 +420,8 @@
       "tags": ["portait"],
       "likes": 63,
       "date": "2019-04-07",
-      "price": 45
+      "price": 45,
+      "description": "Portrait d'une femme portant des lunettes se trouvant dans un restaurant"
     },
     {
       "id": 398847109,
@@ -393,7 +431,8 @@
       "tags": ["portait"],
       "likes": 55,
       "date": "2019-06-20",
-      "price": 45
+      "price": 45,
+      "description": "Portrait en noir et blanc d'une femme blanche sur un fond noir"
     },
     {
       "id": 2534342,
@@ -403,7 +442,8 @@
       "tags": ["events"],
       "likes": 25,
       "date": "2019-06-21",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'une table dressée sur une plage pour un mariage"
     },
     {
       "id": 65235234,
@@ -413,7 +453,8 @@
       "tags": ["events"],
       "likes": 52,
       "date": "2019-06-25",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'un couple de jeunes mariés debout sur une pière dans une forêt"
     },
     {
       "id": 23523434,
@@ -423,7 +464,8 @@
       "tags": ["events"],
       "likes": 77,
       "date": "2019-06-28",
-      "price": 45
+      "price": 45,
+      "description": "Photo d'un couple de jeunes mariés au centre d'une allée d'un lieu de mariage en extérieur"
     },
     {
       "id": 5234343,
@@ -433,7 +475,8 @@
       "tags": ["animals"],
       "likes": 142,
       "date": "2019-08-23",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un troupeau de chevaux sauvages dans un paysage montagneux"
     },
     {
       "id": 95234343,
@@ -443,7 +486,8 @@
       "tags": ["animals"],
       "likes": 59,
       "date": "2019-07-02",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un petit oiseau couleur arc-en-ciel posé sur une branche"
     },
 
     {
@@ -454,7 +498,8 @@
       "tags": ["travel"],
       "likes": 25,
       "date": "2019-04-03",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'une tour au Japon, prise dans une allée, deux personnes portant des vêtements traditionnels se tiennent au premier plan"
     },
     {
       "id": 2523434,
@@ -464,7 +509,8 @@
       "tags": ["travel"],
       "likes": 53,
       "date": "2019-05-06",
-      "price": 60
+      "price": 60,
+      "description": "Photo des canaux de Venise en début de soirée"
     },
     {
       "id": 95293534,
@@ -474,7 +520,8 @@
       "tags": ["travel"],
       "likes": 33,
       "date": "2019-05-12",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un lac entouré de forêts et proche d'une montagne"
     },
     {
       "id": 356234343,
@@ -484,7 +531,8 @@
       "tags": ["travel"],
       "likes": 53,
       "date": "2019-06-20",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un vélo posé contre des escaliers dans une ville"
     },
     {
       "id": 235234343,
@@ -494,7 +542,8 @@
       "tags": ["travel"],
       "likes": 63,
       "date": "2019-06-26",
-      "price": 60
+      "price": 60,
+      "description": "Photo prise dans un bâtiment en Inde, un encadrement de porte donne sur une vue de la ville en dessous"
     },
     {
       "id": 6234234343,
@@ -504,7 +553,8 @@
       "tags": ["architecture"],
       "likes": 52,
       "date": "2019-06-30",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un bâtiment traditionnel de St Petersburg"
     },
     {
       "id": 6525666253,
@@ -514,7 +564,8 @@
       "tags": ["architecture"],
       "likes": 63,
       "date": "2019-07-20",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un village construit sur une colline au Tibet"
     },
     {
       "id": 98252523433,
@@ -524,7 +575,8 @@
       "tags": ["architecture"],
       "likes": 88,
       "date": "2020-01-05",
-      "price": 60
+      "price": 60,
+      "description": "Photo prise au pied de la tour de Pise"
     },
     {
       "id": 9259398453,
@@ -534,7 +586,8 @@
       "tags": ["architecture"],
       "likes": 57,
       "date": "2020-01-20",
-      "price": 65
+      "price": 65,
+      "description": "Vidéo aérienne commençant sur la vue d'un échangeur autoroutier à Buenos Aires et pivotant jusqu'à montrer une vue de la ville"
     },
     {
       "id": 3523523534,
@@ -544,7 +597,8 @@
       "tags": ["architecture"],
       "likes": 54,
       "date": "2020-05-05",
-      "price": 60
+      "price": 60,
+      "description": "Photo d'un bâtiment ancien blanc et rouge sur fond de ciel bleu"
     },
 
     {
@@ -555,7 +609,8 @@
       "tags": ["sport"],
       "likes": 150,
       "date": "2018-02-30",
-      "price": 70
+      "price": 70,
+      "description": "Vidéo d'une femme effectuant des figures dans une salle de gymnastique"
     },
     {
       "id": 235234343,
@@ -565,7 +620,8 @@
       "tags": ["sport"],
       "likes": 101,
       "date": "2018-03-05",
-      "price": 65
+      "price": 65,
+      "description": "Photo d'une femme escaladant une falaise"
     },
     {
       "id": 235343222,
@@ -575,7 +631,8 @@
       "tags": ["sport"],
       "likes": 103,
       "date": "2018-03-10",
-      "price": 70
+      "price": 70,
+      "description": "Photo d'un surfeur dans un rouleau de vague"
     },
     {
       "id": 7775342343,
@@ -585,7 +642,8 @@
       "tags": ["sport"],
       "likes": 77,
       "date": "2018-04-16",
-      "price": 50
+      "price": 50,
+      "description": "Photo prise en plein vol d'une personne faisant du ski"
     },
     {
       "id": 9253445784,
@@ -595,7 +653,8 @@
       "tags": ["sport"],
       "likes": 88,
       "date": "2018-04-22",
-      "price": 65
+      "price": 65,
+      "description": "Photo d'une course entre femmes sur une piste de stade"
     },
     {
       "id": 22299394,
@@ -605,7 +664,8 @@
       "tags": ["sport"],
       "likes": 95,
       "date": "2018-04-27",
-      "price": 70
+      "price": 70,
+      "description": "Photo d'un skater en plein saut"
     },
     {
       "id": 3452342633,
@@ -615,7 +675,8 @@
       "tags": ["architecture"],
       "likes": 52,
       "date": "2018-05-03",
-      "price": 75
+      "price": 75,
+      "description": "Photo de la coupole d'un bâtiment blanc prise au sol"
     },
     {
       "id": 939234243,
@@ -625,7 +686,8 @@
       "tags": ["architecture"],
       "likes": 55,
       "date": "2018-05-10",
-      "price": 72
+      "price": 72,
+      "description": "Photo d'un bâtiment moderne avec une étendue d'eau au premier plan"
     },
     {
       "id": 222959233,
@@ -635,7 +697,8 @@
       "tags": ["architecture"],
       "likes": 85,
       "date": "2018-05-15",
-      "price": 71
+      "price": 71,
+      "description": "Photo d'un bâtiment prise au sol la forme du bâtiment fait penser à un fer à cheval"
     },
     {
       "id": 965933434,
@@ -645,8 +708,9 @@
       "tags": ["architecture"],
       "likes": 66,
       "date": "2018-05-20",
-      "price": 58
-    },
+      "price": 58,
+      "description": "Photo de deux bâtiments prise au sol en direction du ciel, la forme des bâtiments donne l'impression d'une forme de croix"
+    },  
     {
       "id": 777723343,
       "photographerId": 930,
@@ -655,7 +719,8 @@
       "tags": ["architecture"],
       "likes": 79,
       "date": "2018-05-21",
-      "price": 80
+      "price": 80,
+      "description": "Photo d'un bâtiment moderne de forme courbe"
     }
   ]
 }

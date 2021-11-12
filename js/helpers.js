@@ -17,9 +17,9 @@ function createHTMLCode(photographer) {
 // Pattern Factory pour créer des vidéos ou photos selon la nature du média
 function generateMediaTag(media, cssClass) {
   if (media.video == undefined) {
-    return `<img class="${cssClass}" id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.image}' alt='${media.description}'/>`;
+    return `<img class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.image}" alt="${media.description}"/>`;
   }
-  return `<video controls class="${cssClass}" id="media-img-${media.id}" src='./public/img/SamplePhotos/${media.photographerId}/${media.video}' alt='${media.description}'></video>`;
+  return `<video controls class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.video}" alt="${media.description}"></video>`;
 }
 
 function createMediaHTMLCode(media) {

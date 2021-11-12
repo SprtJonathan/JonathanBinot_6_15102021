@@ -134,7 +134,8 @@ function displayPage(sorter) {
           mediaData[j].tags,
           mediaData[j].likes,
           mediaData[j].date,
-          mediaData[j].price
+          mediaData[j].price,
+          mediaData[j].description
         );
 
         console.log(media);

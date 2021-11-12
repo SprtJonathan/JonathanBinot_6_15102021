@@ -10,6 +10,7 @@ class Media {
       likes,
       date,
       price,
+      description,
     ) {
       this._id = id;
       this._photographerId = photographerId;
@@ -20,6 +21,7 @@ class Media {
       this._likes = likes;
       this._date = date;
       this._price = price;
+      this._description = description;
     }
   
     get id() {
@@ -57,6 +59,10 @@ class Media {
     get price() {
       return this._price;
     }
+  
+    get description() {
+      return this._description;
+    }
   }
   
   const MediaFactory = {
@@ -70,6 +76,7 @@ class Media {
         likes,
         date,
         price,
+        description,
     ) {
       return new Media(
         id,
@@ -81,6 +88,7 @@ class Media {
       likes,
       date,
       price,
+      description,
       );
     },
   };
