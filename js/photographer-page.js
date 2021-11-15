@@ -166,23 +166,27 @@ function displayPage(sorter) {
         function setLikes(e) {
           console.log(e + " et " + `like-media-${media.id}`);
           // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
-          if (e == `like-media-${media.id}`) {
-            console.log(e.target.id);
+          if (e.startsWith("like-media-")) {
+            // On récupère l'id seul du like souhaité
+            let elementId = e.split("like-media-").pop();
+            /*console.log(
+              "L'id est égal à " + elementId + " et l'élement est " + e
+            );*/
             // Si l'élement n'a pas déjà été liké, alors on effectue la fonction d'incrémentation
             if (!isLiked) {
               isLiked = !isLiked;
-              tweakLikes(media, 1);
+              tweakLikes(elementId, 1);
             } else {
               // Sinon on le décrémente en appelant la fonction chargée de le faire
               isLiked = !isLiked;
-              tweakLikes(media, -1);
+              tweakLikes(elementId, -1);
             }
           }
         }
       }
 
-      function tweakLikes(media, value) {
-        const likesText = document.getElementById(`like-counter-${media.id}`);
+      function tweakLikes(elementId, value) {
+        const likesText = document.getElementById(`like-counter-${elementId}`);
         let likesValue = parseInt(likesText.innerHTML);
         console.log(likesValue);
         let newLikesValue = likesValue + value;
