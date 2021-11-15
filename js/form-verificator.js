@@ -1,6 +1,6 @@
 const formBody = document.getElementById("contact-form"); // Formulaire
 
-let formSubmitButton = document.getElementById("contact-button");
+let formSubmitButton = document.getElementById("contact-button-submit");
 let fnameId = document.getElementById("fname");
 let lnameId = document.getElementById("lname");
 let emailId = document.getElementById("email");
@@ -66,16 +66,19 @@ function nameValidation(nameId, nameError) {
   if (nameId.value.length < 2) {
     nameError.textContent = "Merci d'entrer au minimum deux caractères"; // Message d'erreur affiché
     nameError.className = "error-text--expanded"; // On affiche le bloc d'erreur
+    nameId.setAttribute("aria-invalid", "true");
     return false;
   } else {
     // Sinon, si la valeur du champ contient des chiffres ou caractères spéciaux, on renvoie une erreur
     if (nameRegexValidation(nameId.value) == false) {
       nameError.textContent = "Pas de chiffres ou de caractères spéciaux"; // Message d'erreur affiché
       nameError.className = "error-text--expanded"; // On affiche le bloc d'erreur
+      nameId.setAttribute("aria-invalid", "true");
       return false;
       // Sinon on valide le champ et on renvoie "true"
     } else {
-        nameError.className = "error-text"; // On cache le bloc d'erreur s'il n'y en a pas
+      nameError.className = "error-text"; // On cache le bloc d'erreur s'il n'y en a pas
+      nameId.setAttribute("aria-invalid", "false");
       return true;
     }
   }
@@ -86,9 +89,11 @@ function emailValidation() {
   if (emailRegexValidation(emailId.value) == false) {
     emailError.textContent = "Merci de saisir une adresse email valide";
     emailError.className = "error-text--expanded";
+    emailId.setAttribute("aria-invalid", "true");
     return false;
   } else {
     emailError.className = "error-text";
+    emailId.setAttribute("aria-invalid", "false");
     return true;
   }
 }
@@ -99,10 +104,12 @@ function messageValidation() {
   if (!messageId.value) {
     messageError.textContent = "Merci de préciser la raison de votre message";
     messageError.className = "error-text--expanded";
+    messageId.setAttribute("aria-invalid", "true");
     return false;
   } else {
     // Sinon vrai
     messageError.className = "error-text";
+    messageId.setAttribute("aria-invalid", "false");
     return true;
   }
 }
@@ -110,7 +117,7 @@ function messageValidation() {
 // Création d'un bloc pour le message de succès
 formBody.insertAdjacentHTML(
   "afterend",
-  "<div id='success' class='success-block'><h2 class='success-title'>Formulaire validé !</h2> <p class='success-text'>Merci d'avoir rempli le formulaire d'inscription</p><input class='btn-submit' type='submit' onclick='resetForm()' value='Fermer'/></div>"
+  "<div id='success' class='success-block' tabindex='13'><h2 class='success-title' tabindex='13'>Formulaire validé !</h2> <p class='success-text' tabindex='13'>Merci de m'avoir contacté, je vous répondrai prochainement</p><input class='btn-submit' type='submit' onclick='resetForm()' value='Fermer' tabindex='13'/></div>"
 );
 let successMessage = document.getElementById("success");
 successMessage.style.display = "none"; // On le cache par défaut

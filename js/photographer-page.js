@@ -1,47 +1,47 @@
-const photographerPageSection = document.getElementById(
-  "photographer-page-section"
-);
 const photographerSectionArticle = document.getElementById(
   "photographer-section-article"
-);
+); // Article contenant les informations du photographe
 const photographerMediaSection = document.getElementById(
   "photographer-media-section"
-);
+); // Section pour l'affichage des photographies de l'auteur
 
-let totalLikes = 0;
+let totalLikes = 0; // Nombre de likes total sur toutes les photos du photographe
 
-let photographer = "";
+let photographer = ""; // Initialisation de l'objet photographe
 
-const dataLocation = "../public/json/photographers-data.json";
+const dataLocation = "../public/json/photographers-data.json"; // Emplacement du fichier JSON contenant les donées
 
-const photographerName = document.getElementById("photographer-name");
+const photographerName = document.getElementById("photographer-name"); // élément dans lequel est affiché le nom du photographe
 
-const photographerId = location.search.substring(4);
+const photographerId = location.search.substring(4); // Récupération de l'ID du photographe dans l'URL de la page
 
-let orderMediaSelectedValue = document.getElementById("order-by").value;
+let orderMediaSelected = document.getElementById("order-by"); // Ordre d'affichage des photographies
+let orderMediaSelectedValue = document.getElementById("order-by").value; // Ordre d'affichage des photographies
 
-let mediaData;
+let mediaData; // Initialisation du tableau contenant les différents médias
 
-orderMediaSelect();
+orderMediaSelect(); // Appel de la fonction permettant d'ordonner les médias
+
+orderMediaSelected.addEventListener("change", orderMediaSelect);
 
 // Fonction permettant de trier les photos selon les critères
 function orderMediaSelect() {
   orderMediaSelectedValue = document.getElementById("order-by").value;
   console.log(orderMediaSelectedValue);
-  
+
   totalLikes = 0;
 
   displayPage(orderMediaSelectedValue);
   return orderMediaSelectedValue;
 }
 
+// Fonction affichant la page
 function displayPage(sorter) {
   fetch(dataLocation)
     .then((data) => {
       return data.json();
-    })
+    }) // récupération des données
     .then((data) => {
-      console.log(data.photographers[0].id);
       for (let i = 0; i < data.photographers.length; i++) {
         if (data.photographers[i].id == photographerId) {
           foundPhotographer = data.photographers[i];
@@ -57,8 +57,9 @@ function displayPage(sorter) {
             data.photographers[i].price,
             data.photographers[i].portrait
           );
-          console.log(photographer);
+          // Affichage de l'en-tête contenant les infos du photographe
           photographerSectionArticle.innerHTML = `
+        <div class="photographer-page--header">
         <div class="photographer-page--lblock">
         <h1 id="photographer-name" class="photographer-page--name" aria-label="Le photographe sélectionné est ${photographer.name}" tabindex="3">
           ${photographer.name}
@@ -67,11 +68,12 @@ function displayPage(sorter) {
         <blockquote tabindex="5" class="photographer-page--tagline">${photographer.tagline}</blockquote>
         <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
         </div>
-        <div id="contact-button-block" class="contact-button-div"><span id="contact-button" class="button">Contactez-moi</span></div>
-        <img id="${photographer.id}-profilePicture" class="photographer-page--picture photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="7"/>
+        <div id="contact-button-block" class="contact-button-div"><span id="contact-button" class="button" tabindex="7">Contactez-moi</span></div>
+        </div>
+        <img id="${photographer.id}-profilePicture" class="photographer-page--picture photographer-profile-picture" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="19"/>
         `;
 
-          // Récupération des tags correspondant à chaque photographe
+          // Récupération des tags correspondant au photographe sélectionné
           const articleTags = document.getElementById(
             "article-tags-" + photographer.id
           );
@@ -87,12 +89,12 @@ function displayPage(sorter) {
 
       const modalbg = document.getElementById("form-background"); // Div d'arrière plan du formulaire
 
-      const contactButton = document.getElementById("contact-button");
+      const contactButton = document.getElementById("contact-button"); // Bouton permettant d'ouvrir le formulaire
 
-      const closeButton = document.getElementById("close-button");
+      const closeButton = document.getElementById("close-button"); // Bouton pour fermer la modale de contact
 
-      contactButton.addEventListener("click", openModal);
-      closeButton.addEventListener("click", closeModal);
+      contactButton.addEventListener("click", openModal); // Evènement déclencheant l'ouverture de la modale
+      closeButton.addEventListener("click", closeModal); // Fermeture de la modale
 
       function openModal() {
         modalbg.style.display = "flex";
@@ -104,12 +106,12 @@ function displayPage(sorter) {
         contactButton.style.display = "flex";
       }
 
+      // Filtrage des médias selon l'ID du photographe afin que seuls les médias du photographe sélectionné soient visibles
       mediaData = data.media.filter(
         (media) => media.photographerId === parseInt(photographerId)
       );
 
-      console.log("mediaData" + mediaData);
-
+      // Fonction permettant de trier les photos selon les critères du média
       function GetSortOrder(prop) {
         return function (a, b) {
           if (a[prop] > b[prop]) {
@@ -143,29 +145,28 @@ function displayPage(sorter) {
         totalLikes += media.likes;
 
         // Récupération des images du photographe
-
-        let filteredMedia = data.media.filter(
-          (mediaData) => mediaData.photographerId === photographerId
-        );
-
-        console.log(filteredMedia);
-
         // Création d'un bloc figure pour chaque média du photographe
         photographerMediaSection.innerHTML += createMediaHTMLCode(media);
 
+        let likesIcon = document.querySelectorAll(".fa-heart");
+
         //photographerMediaSection.addEventListener("click", setLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
 
-        photographerMediaSection.addEventListener("click", (e) => {
-          console.log("click sur " + e.target.id);
-          setLikes(e);
-        }); // Détection du clic sur la séction media pour appeler la fonction des likes
+        likesIcon.forEach((el) =>
+          el.addEventListener("click", (e) => {
+            console.log(e.target.id);
+            console.log("Clic une fois");
+            setLikes(e.target.id);
+          })
+        ); // Détection du clic sur la séction media pour appeler la fonction des likes
 
         let isLiked = false; // Variable permettant de vérifier si un élément est déjà liké
 
         // Fonction permettant d'incrémenter ou de décrémenter le nombre de likes d'une photo
         function setLikes(e) {
+          console.log(e + " et " + `like-media-${media.id}`);
           // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
-          if (e.target && e.target.id == `like-media-${media.id}`) {
+          if (e == `like-media-${media.id}`) {
             console.log(e.target.id);
             // Si l'élement n'a pas déjà été liké, alors on effectue la fonction d'incrémentation
             if (!isLiked) {
@@ -214,6 +215,8 @@ function displayPage(sorter) {
 
       // Lightbox
 
+      let currentMedia;
+
       const lightboxModal = document.getElementById("lightbox-modal");
       const lightboxImage = document.getElementById("lightbox-image");
       const lightboxClose = document.getElementById("lightbox-close");
@@ -221,19 +224,23 @@ function displayPage(sorter) {
       const lightboxNext = document.getElementById("lightbox-next");
       const lightboxTitle = document.getElementById("lightbox-title");
 
-      photographerMediaSection.addEventListener("click", launchLightbox);
+      //photographerMediaSection.addEventListener("click", launchLightbox);
       lightboxClose.addEventListener("click", closeLightbox);
-      lightboxPrevious.addEventListener("click", previousPicture);
-      lightboxNext.addEventListener("click", nextPicture);
+      lightboxPrevious.addEventListener("click", (event) => {
+        changePicture(-1);
+      });
+      lightboxNext.addEventListener("click", (event) => {
+        changePicture(1);
+      });
       lightboxClose.addEventListener("click", closeLightbox);
       window.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
-          previousPicture();
+          changePicture(-1);
         }
       });
       window.addEventListener("keydown", (event) => {
         if (event.key === "ArrowRight") {
-          nextPicture();
+          changePicture(1);
         }
       });
       window.addEventListener("keydown", (event) => {
@@ -241,8 +248,6 @@ function displayPage(sorter) {
           closeLightbox();
         }
       });
-
-      let currentMedia;
 
       function closeLightbox() {
         lightboxModal.style.display = "none";
@@ -255,42 +260,25 @@ function displayPage(sorter) {
           currentMedia = media;
           console.log(pictureId);
           console.log(media);
-          lightboxImage.innerHTML = generateMediaTag(media, "lightbox--image");
+          lightboxImage.innerHTML = generateMediaTag(
+            media,
+            "lightbox--image--img"
+          );
           lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
           lightboxModal.style.display = "flex";
         }
       }
 
-      function previousPicture() {
+      function changePicture(value) {
         let index = mediaData.indexOf(currentMedia);
         console.log(index);
-        let previousMedia = mediaData[index - 1];
-        currentMedia = previousMedia;
-
-        if (index <= 0) {
-          lightboxPrevious.className =
-            "lightbox--button-previous-button--greyed";
-        } else {
-          lightboxPrevious.className = "lightbox--button-previous-button";
-        }
+        let newMedia = mediaData[index + value];
+        currentMedia = newMedia;
 
         if (currentMedia != undefined) {
           lightboxImage.innerHTML = generateMediaTag(
             currentMedia,
-            "lightbox--image"
-          );
-          lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
-        }
-      }
-      function nextPicture() {
-        let index = mediaData.indexOf(currentMedia);
-        let nextMedia = mediaData[index + 1];
-        currentMedia = nextMedia;
-
-        if (currentMedia != undefined) {
-          lightboxImage.innerHTML = generateMediaTag(
-            currentMedia,
-            "lightbox--image"
+            "lightbox--image--img"
           );
           lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}">${currentMedia.title}</p>`;
         }

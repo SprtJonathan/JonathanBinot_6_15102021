@@ -17,14 +17,14 @@ function createHTMLCode(photographer) {
 // Pattern Factory pour créer des vidéos ou photos selon la nature du média
 function generateMediaTag(media, cssClass) {
   if (media.video == undefined) {
-    return `<img class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.image}" alt="${media.description}"/>`;
+    return `<img class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.image}" alt="${media.description}" tabindex="${media.photographerId}"/>`;
   }
-  return `<video controls class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.video}" alt="${media.description}"></video>`;
+  return `<video controls class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.video}" alt="${media.description}" tabindex="${media.photographerId}"></video>`;
 }
 
 function createMediaHTMLCode(media) {
   const mediaHtmlCode = `
-  <figure class="media--card" tabindex="${media.photographerId}" id="card-${
+  <figure class="media--card" tabindex="${media.photographerId}" id="media-card-${
     media.photographerId
   }" aria-label="Le média de ${photographer.name} se nomme : ${media.title}">
     ${generateMediaTag(media, "media--image")}
@@ -36,7 +36,7 @@ function createMediaHTMLCode(media) {
       </p>
       <div class="media--like-counter--block" id="like-div-${media.id}" tabindex="${media.photographerId}">
         <span class="media--like-counter--span" id="like-counter-${media.id}" aria-label="il à été aimé ${media.likes} fois ">${media.likes}</span>
-        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${media.id}"></i></span>
+        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${media.id}" tabindex="${media.photographerId}"></i></span>
       </div>
     </figcaption>
   </figure>`;

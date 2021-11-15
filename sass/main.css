@@ -416,9 +416,10 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 2rem 0px 2rem;
 }
 
 .photographer-page--name {
@@ -454,7 +455,19 @@ main {
 .photographer-page--picture {
   width: 100px;
   height: 100px;
-  margin-bottom: 25px;
+  position: absolute;
+  top: 7rem;
+  left: 70%;
+}
+
+.photographer-page--header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .photographer-page--static-text {
@@ -1306,6 +1319,7 @@ main {
   margin: 2rem;
   margin-left: 90%;
   font-size: 20px;
+  color: #901c1c;
 }
 
 .lightbox--close-button:hover {
@@ -1320,8 +1334,9 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 80%;
+  margin: auto;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -ms-flex-line-pack: center;
@@ -1331,30 +1346,33 @@ main {
           align-items: center;
 }
 
-.lightbox--previous-button {
+.lightbox--change-button {
   min-width: 10%;
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+  color: #901c1c;
 }
 
-.lightbox--previous-button--greyed {
-  color: #525252;
-}
-
-.lightbox--next-button {
-  min-width: 10%;
-}
-
-.lightbox--next-button--greyed {
-  color: #525252;
+.lightbox--change-button:hover {
+  cursor: pointer;
 }
 
 .lightbox--image {
-  height: 100%;
-  width: auto;
+  max-height: 90%;
+  max-width: 70%;
+  margin: auto;
+}
+
+.lightbox--image--img {
+  width: 100%;
   margin: auto;
 }
 
 .lightbox--image--title {
   margin: auto;
+  width: 70%;
+  text-align: left;
   color: #901c1c;
 }
 
@@ -1365,6 +1383,12 @@ main {
   }
   .modal--body {
     width: 50%;
+  }
+  .photographer-page--picture {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 25px;
   }
 }
 
@@ -1391,12 +1415,20 @@ main {
   .modal--contact-form--submit {
     margin: 1rem 0;
   }
+  .contact-button-div {
+    position: relative;
+    width: 200px;
+  }
 }
 
 /*Affichage widescreen*/
 @media (min-width: 1440px) {
   .modal--body {
     width: 25%;
+  }
+  .contact-button-div {
+    position: relative;
+    width: 200px;
   }
 }
 /*# sourceMappingURL=main.css.map */

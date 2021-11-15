@@ -19,9 +19,6 @@
           src="/public/img/logo.png"
           alt=""
       /></a>
-      <nav aria-label="Choix des tags pour les photographes">
-        <ul></ul>
-      </nav>
     </header>
 
     <main id="main">
@@ -50,7 +47,6 @@
           name="order-by"
           id="order-by"
           class="media--select--select"
-          onchange="orderMediaSelect()"
         >
           <option value="likes" class="media--select--option" selected>
             Popularité
@@ -77,15 +73,37 @@
       </aside>
 
       <section id="lightbox-modal" class="lightbox--modal">
-        <span id="lightbox-close" class="lightbox--close-button">X</span>
+        <span
+          id="lightbox-close"
+          class="lightbox--close-button"
+          tabindex="20"
+          aria-label="Fermer le diaporama"
+          >X</span
+        >
         <div id="lightbox-carousel" class="lightbox--carousel">
-          <div id="lightbox-previous" class="lightbox--previous-button">
+          <div
+            id="lightbox-previous"
+            class="lightbox--change-button"
+            tabindex="21"
+            aria-label="Photo précédente"
+          >
             <i class="fas fa-chevron-left"></i>
           </div>
           <div id="lightbox-image" class="lightbox--image">image</div>
-          <div id="lightbox-next"><i class="fas fa-chevron-right"></i></div>
+          <div
+            id="lightbox-next"
+            class="lightbox--change-button"
+            tabindex="22"
+            aria-label="Photo suivante"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </div>
         </div>
-        <div id="lightbox-title" class="lightbox--image--title">
+        <div
+          id="lightbox-title"
+          class="lightbox--image--title"
+          aria-label="Une erreur est survenue, la photo n'existe pas"
+        >
           Error : Image not found
         </div>
       </section>
@@ -94,38 +112,80 @@
         <div id="modal-body" class="modal--body">
           <div class="modal--header">
             <div class="modal--header--text--div">
-              <h2 class="modal--header--text">Contactez-moi</h2>
+              <h2 class="modal--header--text" tabindex="11">Contactez-moi</h2>
               <h2 id="contact-me" class="modal--header--text"></h2>
             </div>
-            <span id="close-button" class="modal--header--close">X</span>
+            <span
+              id="close-button"
+              class="modal--header--close"
+              tabindex="12"
+              aria-label="fermer le formulaire de contact"
+              >X</span
+            >
           </div>
 
-          <form name="contact" id="contact-form" class="modal--contact-form">
-            <label for="fname" class="modal--contact-form--label">Prénom</label>
+          <form
+            name="contact"
+            id="contact-form"
+            class="modal--contact-form"
+            tabindex="13"
+          >
+            <label
+              for="fname"
+              id="fname-label"
+              class="modal--contact-form--label"
+              tabindex="13"
+              >Prénom</label
+            >
             <input
               type="text"
               name="fname"
               id="fname"
               class="modal--contact-form--input"
+              aria-labelledby="fname-label"
+              tabindex="13"
+              required
             />
 
-            <label for="fname" class="modal--contact-form--label">Nom</label>
+            <label
+              for="lname"
+              id="lname-label"
+              class="modal--contact-form--label"
+              tabindex="13"
+              >Nom</label
+            >
             <input
               type="text"
               name="lname"
               id="lname"
               class="modal--contact-form--input"
+              aria-labelledby="lname-label"
+              tabindex="13"
+              required
             />
 
-            <label for="email" class="modal--contact-form--label">Email</label>
+            <label
+              for="email"
+              id="email-label"
+              class="modal--contact-form--label"
+              tabindex="13"
+              >Email</label
+            >
             <input
               type="text"
               name="email"
               id="email"
               class="modal--contact-form--input"
+              aria-labelledby="email-label"
+              tabindex="13"
+              required
             />
 
-            <label for="message" class="modal--contact-form--label"
+            <label
+              for="message"
+              id="message-label"
+              class="modal--contact-form--label"
+              tabindex="13"
               >Votre message</label
             >
             <textarea
@@ -134,12 +194,16 @@
               cols="30"
               rows="10"
               class="modal--contact-form--textarea"
+              aria-labelledby="message-label"
+              tabindex="13"
+              required
             ></textarea>
 
             <button
               type="submit"
-              id="contact-button"
+              id="contact-button-submit"
               class="modal--contact-form--submit button"
+              tabindex="13"
             >
               Envoyer
             </button>
