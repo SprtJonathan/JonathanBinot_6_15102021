@@ -160,7 +160,7 @@ function displayPage(sorter) {
           })
         ); // Détection du clic sur la séction media pour appeler la fonction des likes
 
-        let isLiked = false; // Variable permettant de vérifier si un élément est déjà liké
+        let likedElements = []; // Tableau dans lequel seront stockés les id des éléments déjà likés
 
         // Fonction permettant d'incrémenter ou de décrémenter le nombre de likes d'une photo
         function setLikes(e) {
@@ -169,18 +169,25 @@ function displayPage(sorter) {
           if (e.startsWith("like-media-")) {
             // On récupère l'id seul du like souhaité
             let elementId = e.split("like-media-").pop();
-            /*console.log(
-              "L'id est égal à " + elementId + " et l'élement est " + e
-            );*/
-            // Si l'élement n'a pas déjà été liké, alors on effectue la fonction d'incrémentation
-            if (!isLiked) {
-              isLiked = !isLiked;
-              tweakLikes(elementId, 1);
+            
+            // Si l'élement n'a pas déjà été liké (n'est pas dans le tableau), alors on effectue la fonction d'incrémentation
+            if (likedElements.includes(elementId)) {
+              let elementIndex = likedElements.indexOf(elementId);
+              if (elementIndex !== -1) {
+                likedElements.splice(elementIndex, 1);
+              }
+              tweakLikes(elementId, -1);
+              document.getElementById(e).setAttribute("aria-label", "Like retiré")
+              document.getElementById(e).className = "fa fa-heart";
             } else {
               // Sinon on le décrémente en appelant la fonction chargée de le faire
-              isLiked = !isLiked;
-              tweakLikes(elementId, -1);
+
+              likedElements.push(elementId);
+              tweakLikes(elementId, 1);
+              document.getElementById(e).setAttribute("aria-label", "Like ajouté")
+              document.getElementById(e).className = "liked fa fa-heart";
             }
+            console.log(likedElements);
           }
         }
       }

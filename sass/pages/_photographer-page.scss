@@ -159,10 +159,10 @@
       width: fit-content;
       z-index: 200;
       transition: all ease 200ms;
+      color: $primary-color;
       &:hover {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.2, 1.2);
         transition: all ease 200ms;
-        color: red;
         cursor: pointer;
       }
     }
@@ -176,6 +176,10 @@
       align-content: center;
     }
   }
+}
+
+.liked {
+  color: red;
 }
 
 @for $i from 1 through 100 {
