@@ -329,6 +329,11 @@
   }
 }
 
+.success-block {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
 /*Affichage tablette*/
 @media (min-width: 768px) {
   .media {

@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 // Création de la class Photographer et de la factory
 class Photographer {
-  constructor(
+  constructor (
     id,
     name,
     description,
@@ -11,51 +12,51 @@ class Photographer {
     price,
     portrait
   ) {
-    this._id = id;
-    this._name = name;
-    this._description = description;
-    this._city = city;
-    this._country = country;
-    this._tags = tags;
-    this._tagline = tagline;
-    this._price = price;
-    this._portrait = portrait;
+    this._id = id
+    this._name = name
+    this._description = description
+    this._city = city
+    this._country = country
+    this._tags = tags
+    this._tagline = tagline
+    this._price = price
+    this._portrait = portrait
   }
 
-  get id() {
-    return this._id;
+  get id () {
+    return this._id
   }
 
-  get name() {
-    return this._name;
+  get name () {
+    return this._name
   }
 
-  get description() {
-    return this._description;
+  get description () {
+    return this._description
   }
 
-  get city() {
-    return this._city;
+  get city () {
+    return this._city
   }
 
-  get country() {
-    return this._country;
+  get country () {
+    return this._country
   }
 
-  get tags() {
-    return this._tags;
+  get tags () {
+    return this._tags
   }
 
-  get tagline() {
-    return this._tagline;
+  get tagline () {
+    return this._tagline
   }
 
-  get price() {
-    return this._price;
+  get price () {
+    return this._price
   }
 
-  get portrait() {
-    return this._portrait;
+  get portrait () {
+    return this._portrait
   }
 }
 
@@ -81,6 +82,6 @@ const PhotographerFactory = {
       tagline,
       price,
       portrait
-    );
-  },
-};
+    )
+  }
+}
