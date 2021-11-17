@@ -235,7 +235,7 @@ function displayPage(sorter) {
       const lightboxNext = document.getElementById("lightbox-next");
       const lightboxTitle = document.getElementById("lightbox-title");
 
-      //photographerMediaSection.addEventListener("click", launchLightbox);
+      photographerMediaSection.addEventListener("click", launchLightbox);
       lightboxClose.addEventListener("click", closeLightbox);
       lightboxPrevious.addEventListener("click", (event) => {
         changePicture(-1);

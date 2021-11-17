@@ -28,11 +28,11 @@ main {
     margin: auto;
     width: auto;
     padding: 2rem;
+    @include regular-transition;
     &:hover {
-      transform: scale(1,1);
-      box-shadow: black 1px 2px 2px;
-
-      transition: all 200ms ease;
+      @include box-shadow-simple;
+      @include scale-up-transition;
+      border-radius: 10px;
     }
   }
   &--name {
@@ -64,7 +64,7 @@ main {
   &--link {
     opacity: 0;
     display: none;
-    transition: opacity ease 300ms;
+    @include regular-transition;
     &--show {
       display: flex;
       width: fit-content;
@@ -76,10 +76,8 @@ main {
       background-color: #db8876;
       font-weight: 600;
       padding: 0.5rem;
-
       opacity: 1;
-
-      transition: opacity ease 300ms;
+      @include regular-transition;
     }
   }
 }

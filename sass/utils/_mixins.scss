@@ -1,0 +1,12 @@
+@mixin box-shadow-simple {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+@mixin regular-transition {
+  transition: all 200ms ease;
+}
+
+@mixin scale-up-transition {
+  transform: scale(1.1, 1.1);
+  transition: all 200ms ease;
+}

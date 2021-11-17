@@ -128,7 +128,7 @@
     border-radius: 5px;
     object-fit: cover;
     object-position: 50% 20%;
-    transition: all 200ms ease;
+    @include regular-transition;
     &--description {
       display: flex;
       flex-direction: row;
@@ -138,8 +138,7 @@
     }
     &:hover {
       cursor: pointer;
-      transform: scale(1.1, 1.1);
-      transition: all 200ms ease;
+      @include scale-up-transition;
     }
   }
   &--video {
@@ -158,11 +157,10 @@
     &--icon {
       width: fit-content;
       z-index: 200;
-      transition: all ease 200ms;
+      @include regular-transition;
       color: $primary-color;
       &:hover {
-        transform: scale(1.2, 1.2);
-        transition: all ease 200ms;
+        @include scale-up-transition;
         cursor: pointer;
       }
     }
@@ -195,24 +193,6 @@
   left: 0;
   z-index: 100;
 }
-
-/*.contact-button {
-  display: flex;
-  width: fit-content;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  background-color: $primary-color;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 0.25rem;
-  font-weight: 600;
-  &:hover {
-    cursor: pointer;
-    background-color: $secondary-color;
-    transition: all ease 250ms;
-  }
-}*/
 
 .modal {
   &--background {
@@ -258,7 +238,7 @@
     justify-content: center;
     align-content: center;
     padding: 2rem;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.534);
+    @include box-shadow-simple
   }
   &--contact-form {
     display: flex;
@@ -341,7 +321,8 @@
     }
     &--title {
       margin: auto;
-      width: 70%;
+      margin-top: -2rem;
+      width: 60%;
       text-align: left;
       color: $primary-color;
     }
@@ -366,6 +347,17 @@
       top: auto;
       left: auto;
       margin-bottom: 25px;
+    }
+  }
+
+  .lightbox {
+    &--image {
+      height: 80vw;
+      &--img {
+        height: 100%;
+        max-width: 100%;
+        margin: auto;
+      }
     }
   }
 }

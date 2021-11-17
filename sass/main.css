@@ -293,15 +293,18 @@ main {
   margin: auto;
   width: auto;
   padding: 2rem;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .photographer--article:hover {
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  -webkit-box-shadow: black 1px 2px 2px;
-          box-shadow: black 1px 2px 2px;
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
   -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
+  border-radius: 10px;
 }
 
 .photographer--name {
@@ -337,8 +340,8 @@ main {
 .content-button--link {
   opacity: 0;
   display: none;
-  -webkit-transition: opacity ease 300ms;
-  transition: opacity ease 300ms;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 .content-button--link--show {
@@ -357,8 +360,8 @@ main {
   font-weight: 600;
   padding: 0.5rem;
   opacity: 1;
-  -webkit-transition: opacity ease 300ms;
-  transition: opacity ease 300ms;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 @media (min-width: 767px) {
@@ -635,16 +638,16 @@ main {
   width: -moz-fit-content;
   width: fit-content;
   z-index: 200;
-  -webkit-transition: all ease 200ms;
-  transition: all ease 200ms;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
   color: #901c1c;
 }
 
 .media--like-counter--icon:hover {
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-  -webkit-transition: all ease 200ms;
-  transition: all ease 200ms;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
   cursor: pointer;
 }
 
@@ -1178,23 +1181,6 @@ main {
   z-index: 100;
 }
 
-/*.contact-button {
-  display: flex;
-  width: fit-content;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  background-color: $primary-color;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 0.25rem;
-  font-weight: 600;
-  &:hover {
-    cursor: pointer;
-    background-color: $secondary-color;
-    transition: all ease 250ms;
-  }
-}*/
 .modal--background {
   display: none;
   position: fixed;
@@ -1262,8 +1248,8 @@ main {
   -ms-flex-line-pack: center;
       align-content: center;
   padding: 2rem;
-  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.534);
-          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.534);
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
 }
 
 .modal--contact-form {
@@ -1375,7 +1361,8 @@ main {
 
 .lightbox--image--title {
   margin: auto;
-  width: 70%;
+  margin-top: -2rem;
+  width: 60%;
   text-align: left;
   color: #901c1c;
 }
@@ -1393,6 +1380,14 @@ main {
     top: auto;
     left: auto;
     margin-bottom: 25px;
+  }
+  .lightbox--image {
+    height: 80vw;
+  }
+  .lightbox--image--img {
+    height: 100%;
+    max-width: 100%;
+    margin: auto;
   }
 }
 
