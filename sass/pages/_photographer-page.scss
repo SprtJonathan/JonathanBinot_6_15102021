@@ -238,7 +238,7 @@
     justify-content: center;
     align-content: center;
     padding: 2rem;
-    @include box-shadow-simple
+    @include box-shadow-simple;
   }
   &--contact-form {
     display: flex;
@@ -302,13 +302,37 @@
     align-items: center;
   }
   &--change-button {
-    min-width: 10%;
-    padding: 1rem;
-    margin: auto;
-    text-align: center;
-    color: $primary-color;
-    &:hover {
-      cursor: pointer;
+    &--next {
+      &:hover {
+        cursor: pointer;
+        @include scale-up-transition;
+      }
+      &::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f054";
+        min-width: 10%;
+        padding: 1rem;
+        margin: auto;
+        text-align: center;
+        color: $primary-color;
+      }
+    }
+    &--previous {
+      &:hover {
+        cursor: pointer;
+        @include scale-up-transition;
+      }
+      &::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f053";
+        min-width: 10%;
+        padding: 1rem;
+        margin: auto;
+        text-align: center;
+        color: $primary-color;
+      }
     }
   }
   &--image {

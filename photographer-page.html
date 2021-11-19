@@ -47,6 +47,8 @@
           name="order-by"
           id="order-by"
           class="media--select--select"
+          aria-label="Trier les médias selon les critères suivants"
+          tabindex="19"
         >
           <option value="likes" class="media--select--option" selected>
             Popularité
@@ -81,23 +83,21 @@
           >X</span
         >
         <div id="lightbox-carousel" class="lightbox--carousel">
-          <div
+          <span
             id="lightbox-previous"
-            class="lightbox--change-button"
+            class="lightbox--change-button--previous"
             tabindex="21"
             aria-label="Photo précédente"
           >
-            <i class="fas fa-chevron-left" aria-label="Photo précédente"></i>
-          </div>
+          </span>
           <div id="lightbox-image" class="lightbox--image">image</div>
-          <div
+          <span
             id="lightbox-next"
-            class="lightbox--change-button"
+            class="lightbox--change-button--next"
             tabindex="22"
             aria-label="Photo suivante"
           >
-            <i class="fas fa-chevron-right" aria-label="Photo suivante"></i>
-          </div>
+          </span>
         </div>
         <div
           id="lightbox-title"

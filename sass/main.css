@@ -1336,7 +1336,18 @@ main {
           align-items: center;
 }
 
-.lightbox--change-button {
+.lightbox--change-button--next:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.lightbox--change-button--next::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f054";
   min-width: 10%;
   padding: 1rem;
   margin: auto;
@@ -1344,8 +1355,23 @@ main {
   color: #901c1c;
 }
 
-.lightbox--change-button:hover {
+.lightbox--change-button--previous:hover {
   cursor: pointer;
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.lightbox--change-button--previous::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f053";
+  min-width: 10%;
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+  color: #901c1c;
 }
 
 .lightbox--image {
