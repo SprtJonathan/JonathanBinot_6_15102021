@@ -3,7 +3,7 @@
 function createHTMLCode (photographer) {
   const photographerHtmlCode = `
 <article class="photographer--article">
-        <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}"><img id="${photographer.id}-profilePicture" class="photographer-profile-picture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/>
+        <a href="photographer-page.html?id=${photographer.id}" aria-label="Cliquez sur l'image pour accéder au profil de ${photographer.name}" tabindex="12"><img id="${photographer.id}-profilePicture" class="photographer-profile-picture" onclick= "console.log(this)" src="./public/img/SamplePhotos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.description}" tabindex="12"/>
             <h2 class="photographer--name" tabindex="13" aria-label="Le nom du photographe est ${photographer.name} ">${photographer.name}</h2></a>
             <aside class="photographer--article--description">
             <h3 class="photographer--location" tabindex="14" aria-label="Le photographe viens de ${photographer.city}">${photographer.city}, ${photographer.country}</h3>
@@ -19,7 +19,7 @@ function createHTMLCode (photographer) {
 // Pattern Factory pour créer des vidéos ou photos selon la nature du média
 function generateMediaTag (media, cssClass) {
   if (media.video === undefined) {
-    return `<img class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.image}" alt="${media.description}" tabindex="${media.photographerId}"/>`
+    return `<img class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.image}" alt="${media.description}. Pressez la touche Entrée pour ouvrir le diaporama" tabindex="${media.photographerId}"/>`
   }
   return `<video controls class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.video}" alt="${media.description}" tabindex="${media.photographerId}"></video>`
 }

@@ -290,6 +290,12 @@ function displayPage (sorter) {
         }
       })
 
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          launchLightbox(event)
+        }
+      })
+
       function closeLightbox () {
         lightboxModal.style.display = 'none'
       }
