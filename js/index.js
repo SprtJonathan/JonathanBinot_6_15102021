@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // URL du fichier JSON
-const dataLocation = '../public/json/photographers-data.json'
+const dataLocation = './public/json/photographers-data.json'
 
 const photographerSection = document.getElementById('photographer-section')
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // Emplacement du fichier JSON contenant les donées
-const dataLocation = '../public/json/photographers-data.json'
+const dataLocation = './public/json/photographers-data.json'
 
 const photographerSectionArticle = document.getElementById(
   'photographer-section-article'
