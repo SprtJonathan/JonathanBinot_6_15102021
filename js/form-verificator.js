@@ -124,6 +124,7 @@ formBody.insertAdjacentHTML(
 const successMessage = document.getElementById('success')
 successMessage.style.display = 'none' // On le cache par défaut
 
+// Fonction de validation du formulaire
 function validateForm () {
   const formValidator =
     nameValidation(fnameId, fnameError) *
@@ -132,12 +133,9 @@ function validateForm () {
     messageValidation()
   console.log(formValidator)
   if (formValidator === 1) {
-    // Si oui on affiche le message de succès
+    // Si tous les champs sont valides, on affiche le message de succès
     successMessage.style.display = 'flex'
     formBody.style.display = 'none' // Affichage du bloc de succès avec le bouton fermer
-
-    // Si besoin, on peut utiliser un timer pour réinitialiser automatiquement le formulaire
-    // On attend 10 secondes avant de fermer la modale
     return 1
   } else {
     return 0

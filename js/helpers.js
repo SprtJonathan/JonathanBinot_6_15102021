@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+
+// Création du code HTML pour l'affichage des photographes du site
 function createHTMLCode (photographer) {
   const photographerHtmlCode = `
 <article class="photographer--article">
@@ -16,7 +18,7 @@ function createHTMLCode (photographer) {
   return photographerHtmlCode
 }
 
-// Pattern Factory pour créer des vidéos ou photos selon la nature du média
+// Création du code HTML des medias selon leur nature
 function generateMediaTag (media, cssClass) {
   if (media.video === undefined) {
     return `<img class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.image}" alt="${media.description}. Pressez la touche Entrée pour ouvrir le diaporama" tabindex="${media.photographerId}"/>`
@@ -24,6 +26,7 @@ function generateMediaTag (media, cssClass) {
   return `<video controls class="${cssClass}" id="media-img-${media.id}" src="./public/img/SamplePhotos/${media.photographerId}/${media.video}" alt="${media.description}" tabindex="${media.photographerId}"></video>`
 }
 
+// Création du code HTML pour les médias des photographes
 function createMediaHTMLCode (media) {
   const mediaHtmlCode = `
   <figure class="media--card" tabindex="${media.photographerId}" id="media-card-${

@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 // Emplacement du fichier JSON contenant les donées
 const dataLocation = './public/json/photographers-data.json'
 
@@ -54,7 +55,7 @@ function displayPage (sorter) {
         photographerData[0].price,
         photographerData[0].portrait
       )
-      // Affichage de l'en-tête contenant les infos du photographe
+      // Affichage de l'en-tête comportant les infos du photographe
       photographerSectionArticle.innerHTML = `
         <div class="photographer-page--header">
         <div class="photographer-page--lblock">
@@ -97,11 +98,13 @@ function displayPage (sorter) {
       contactButton.addEventListener('click', openModal) // Evènement déclencheant l'ouverture de la modale
       closeButton.addEventListener('click', closeModal) // Fermeture de la modale
 
+      // Fonction d'ouverture de la modale de contact
       function openModal () {
         modalbg.style.display = 'flex'
         contactButton.style.display = 'none'
       }
 
+      // Fonction de réinitialisation du formulaire de contact
       function resetForm () {
         formBody.reset()
         successMessage.style.display = 'none'
@@ -109,6 +112,7 @@ function displayPage (sorter) {
         closeModal()
       }
 
+      // Fonction de fermeture de la modale de contact
       function closeModal () {
         console.log(validateForm())
         if (validateForm() === 1) {
@@ -168,74 +172,67 @@ function displayPage (sorter) {
 
         console.log(media)
 
+        // Calcul du nombre total de likes pour tous les médias du photographe
         totalLikes += media.likes
 
         // Récupération des images du photographe
         // Création d'un bloc figure pour chaque média du photographe
         photographerMediaSection.innerHTML += createMediaHTMLCode(media)
 
+        // Récupération de l'icône coeur pour les likes
         const likesIcon = document.querySelectorAll('.fa-heart')
 
-        // photographerMediaSection.addEventListener("click", setLikes); // Détection du clic sur la séction media pour appeler la fonction des likes
-
+        // Pour chaque icône "coeur" de la page, on appelle la fonction permettant de gérer les likes lors du clic
         likesIcon.forEach((el) =>
           el.addEventListener('click', (e) => {
-            console.log(e.target.id)
-            console.log('Clic une fois')
-            setLikes(e.target.id)
+            setLikes(e.target.id) // On passe l'id de l'élément cliqué en paramètre
           })
-
         ) // Détection du clic sur la séction media pour appeler la fonction des likes
+
+        // Même chose pour la pression de la touche entrée
         likesIcon.forEach((el) =>
           el.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
               setLikes(e.target.id)
             }
-          }) // Détection de la touche entrée pour les likes
-
-        ) // Détection du clic sur la séction media pour appeler la fonction des likes
+          })
+        )
 
         const likedElements = [] // Tableau dans lequel seront stockés les id des éléments déjà likés
 
         // Fonction permettant d'incrémenter ou de décrémenter le nombre de likes d'une photo
         function setLikes (e) {
-          console.log(e + ' et ' + `like-media-${media.id}`)
-          // Si l'élément cliqué correspond au compteur de likes ou au coeur, alors on incrémente
-          if (e.startsWith('like-media-')) {
-            // On récupère l'id seul du like souhaité
-            const elementId = e.split('like-media-').pop()
+          // On récupère l'id seul du like souhaité
+          const elementId = e.split('like-media-').pop()
 
-            // Si l'élement n'a pas déjà été liké (n'est pas dans le tableau), alors on effectue la fonction d'incrémentation
-            if (likedElements.includes(elementId)) {
-              const elementIndex = likedElements.indexOf(elementId)
-              if (elementIndex !== -1) {
-                likedElements.splice(elementIndex, 1)
-              }
-              tweakLikes(elementId, -1)
-              document
-                .getElementById(e)
-                .setAttribute('aria-label', 'Like retiré')
-              document.getElementById(e).className = 'fa fa-heart'
-            } else {
-              // Sinon on le décrémente en appelant la fonction chargée de le faire
-
-              likedElements.push(elementId)
-              tweakLikes(elementId, 1)
-              document
-                .getElementById(e)
-                .setAttribute('aria-label', 'Like ajouté')
-              document.getElementById(e).className = 'liked fa fa-heart'
+          // Si l'élement a déjà été liké (est dans le tableau), alors on effectue la fonction de décrémentation
+          if (likedElements.includes(elementId)) {
+            const elementIndex = likedElements.indexOf(elementId)
+            if (elementIndex !== -1) {
+              likedElements.splice(elementIndex, 1) // On retire l'id de l'élément liké du tableau
             }
-            console.log(likedElements)
+            tweakLikes(elementId, -1) // Décrémentation
+            document
+              .getElementById(e)
+              .setAttribute('aria-label', 'Like retiré')
+            document.getElementById(e).className = 'fa fa-heart' // Feedback visuel lorsqu'un élément est unliké : la couleur change
+          } else {
+            // Sinon on l'incrémente en appelant la fonction chargée de le faire
+
+            likedElements.push(elementId) // On envoie l'ID de l'élément liké dans le tableau
+            tweakLikes(elementId, 1) // On ajoute un like
+            document
+              .getElementById(e)
+              .setAttribute('aria-label', 'Like ajouté')
+            document.getElementById(e).className = 'liked fa fa-heart' // Feedback visuel lorsqu'un élément est liké : la couleur change
           }
         }
       }
 
-      // Fonciton permettant
+      // Fonciton permettant d'ajouter et de retirer des likes selon les valeurs passées en paramètre
       function tweakLikes (elementId, value) {
         const likesText = document.getElementById(`like-counter-${elementId}`)
         const likesValue = parseInt(likesText.innerHTML)
-        console.log(likesValue)
         const newLikesValue = likesValue + value
         likesText.innerHTML = newLikesValue
         console.log(
@@ -246,7 +243,7 @@ function displayPage (sorter) {
             '. Et on a donc ' +
             newLikesValue
         )
-        refreshLikesCounter(value)
+        refreshLikesCounter(value) // Rafraîchaissement du compteur total de likes
       }
 
       // Fonction permettant de rafraîchir le nombre total de likes selon un paramètre correspondant au nombre à ajouter
@@ -256,10 +253,12 @@ function displayPage (sorter) {
         totalLikesText.setAttribute('aria-label', 'Le nombre total de likes pour la page de ' + photographer.name + ' est de ' + totalLikes)
       }
 
+      // Élément permettant d'afficher le nombre total de likes
       const totalLikesText = document.getElementById(
         'photographer-total-likes'
       )
 
+      // Ajout du label ARIA (afin de pouvoir le modifier) donnant le nombre total de likes
       totalLikesText.setAttribute('aria-label', 'Le nombre total de likes pour la page de ' + photographer.name + ' est de ' + totalLikes)
 
       const priceText = document.getElementById('photographer-price')
@@ -267,10 +266,10 @@ function displayPage (sorter) {
       totalLikesText.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>'
       priceText.textContent = photographer.price + '€ / jour'
 
-      // Lightbox
-
+      // Code consacré à la modale Lightbox
       let currentMedia
 
+      // Variables
       const lightboxModal = document.getElementById('lightbox-modal')
       const lightboxImage = document.getElementById('lightbox-image')
       const lightboxClose = document.getElementById('lightbox-close')
@@ -278,68 +277,82 @@ function displayPage (sorter) {
       const lightboxNext = document.getElementById('lightbox-next')
       const lightboxTitle = document.getElementById('lightbox-title')
 
+      // Lors du clic sur une image, ouverture de la lightbox
       photographerMediaSection.addEventListener('click', launchLightbox)
+
+      // Lors du clic sur la croix, fermeture de la lightbox
       lightboxClose.addEventListener('click', closeLightbox)
+
+      // Clic sur le bouton précédent, photo précédente
       lightboxPrevious.addEventListener('click', (event) => {
         changePicture(-1)
       })
+
+      // Clic sur le bouton suivante, photo suivante
       lightboxNext.addEventListener('click', (event) => {
         changePicture(1)
       })
-      lightboxClose.addEventListener('click', closeLightbox)
+
+      // Photo précédente lors de la pression de la touche flèche de gauche
       window.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowLeft') {
           changePicture(-1)
         }
       })
+
+      // Photo suivante lors de la pression de la touche flèche de droite
       window.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowRight') {
           changePicture(1)
         }
       })
+
+      // Fermeture de la lightbox lors de la pression de la touche Echap
       window.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
           closeLightbox()
         }
       })
 
+      // Ouverture de la lightbox lors de la pression de la touche entrée (selon le paramètre de l'élément)
       window.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           launchLightbox(event)
         }
       })
 
+      // Fonction permettant la fermeture de la lightbox
       function closeLightbox () {
         lightboxModal.style.display = 'none'
       }
 
+      // Fonction permettant l'ouverture de la lightbox
       function launchLightbox (e) {
+        // Si l'élément sur lequel le focus était lors de la pression d'"Entrée" a un id commençant par "media-img-"
         if (e.target.id.startsWith('media-img-')) {
-          const pictureId = e.target.id.split('-').pop()
-          const media = mediaData.find((element) => element.id === parseInt(pictureId))
+          const pictureId = e.target.id.split('-').pop() // On récupère l'ID de la photo
+          const media = mediaData.find((element) => element.id === parseInt(pictureId)) // On cherche la photo correspondant à l'ID du média
           currentMedia = media
-          console.log(pictureId)
-          console.log(media)
           lightboxImage.innerHTML = generateMediaTag(
             media,
             'lightbox--image--img'
-          )
-          lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title} ${currentMedia.description}">${currentMedia.title}</p>`
+          ) // Création de l'image grâce à la fonction précédemment utilisée pour la création des médias
+          lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title} ${currentMedia.description}">${currentMedia.title}</p>` // Affichage du titre de l'image
           lightboxModal.style.display = 'flex'
         }
       }
 
+      // Fonction permettant de changer de photo (suivante ou précédente) selon la valeur passée en paramètre
       function changePicture (value) {
-        const index = mediaData.indexOf(currentMedia)
-        console.log(index)
-        const newMedia = mediaData[index + value]
-        currentMedia = newMedia
+        const index = mediaData.indexOf(currentMedia) // Index de l'image actuelle
+        const newMedia = mediaData[index + value] // Image située juste avant ou après l'image actuelle selon le paramètre
+        currentMedia = newMedia // Le nouveau média devient le média actuel
 
         if (currentMedia !== undefined) {
           lightboxImage.innerHTML = generateMediaTag(
             currentMedia,
             'lightbox--image--img'
-          )
+          ) // Création de l'image grâce à la fonction précédemment utilisée pour la création des médias
           lightboxTitle.innerHTML = `<p class="lightbox--title" tabindex="${currentMedia.photographerId}" aria-label="La photo actuellement à l'écran est ${currentMedia.title}. ${currentMedia.description}">${currentMedia.title}</p>`
         }
       }

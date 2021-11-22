@@ -2,6 +2,7 @@
 // URL du fichier JSON
 const dataLocation = './public/json/photographers-data.json'
 
+// Variable servant à localiser la section contenant les photographes
 const photographerSection = document.getElementById('photographer-section')
 
 // Identification des boutons
@@ -17,6 +18,7 @@ const sportFilter = document.getElementById('sport')
 const animalsFilter = document.getElementById('animals')
 const eventsFilter = document.getElementById('events')
 
+// Evènements déclenchés lors de la sélection des tags
 allPhotographers.addEventListener('click', displayPhotographers)
 
 portraitFilter.addEventListener('click', filterPhotographer)
@@ -28,6 +30,7 @@ sportFilter.addEventListener('click', filterPhotographer)
 animalsFilter.addEventListener('click', filterPhotographer)
 eventsFilter.addEventListener('click', filterPhotographer)
 
+// Même chose pour la pression de la touche entrée
 portraitFilter.addEventListener('keypress', filterPhotographer)
 artFilter.addEventListener('keypress', filterPhotographer)
 fashionFilter.addEventListener('keypress', filterPhotographer)
@@ -37,6 +40,7 @@ sportFilter.addEventListener('keypress', filterPhotographer)
 animalsFilter.addEventListener('keypress', filterPhotographer)
 eventsFilter.addEventListener('keypress', filterPhotographer)
 
+// Fonction déclenchant l'affichage du bouton passer au contenu lors du scroll
 function scrollDiv () {
   const y = window.scrollY
   if (y >= 10) {
@@ -48,8 +52,11 @@ function scrollDiv () {
 
 window.addEventListener('scroll', scrollDiv)
 
+// Fonction permettant l'affichage des photographes
+
 function displayPhotographers () {
   photographerSection.innerHTML = ''
+
   // Récupération des données des photographes
   fetch(dataLocation)
     .then((response) => response.json())
@@ -65,10 +72,10 @@ function displayPhotographers () {
           object.tagline,
           object.price,
           object.portrait
-        )
+        ) // Création de l'objet Photographe en utilisant la fonction de la factory
 
         // Bloc créé pour chaque photographe
-        photographerSection.innerHTML += createHTMLCode(photographer)
+        photographerSection.innerHTML += createHTMLCode(photographer) // Fonction cherchée dans le fichier helpers.js pour créer le code HTML pour chaque photographe du site
 
         // Récupération des tags correspondant à chaque photographe
         const articleTags = document.getElementById(
@@ -76,11 +83,12 @@ function displayPhotographers () {
         )
         for (tag of photographer.tags) {
           articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`
-        }
+        } // Affichage des tags relatifs à chaque photographe
       }
     })
 }
 
+// Fonction permettant de filtrer les photographes selon les tags
 function filterPhotographer () {
   photographerSection.innerHTML = ''
   const activeFilter = this.dataset.filter
@@ -113,7 +121,7 @@ function filterPhotographer () {
       }
       for (photographer of photographerMatchList) {
         photographerSection.innerHTML += createHTMLCode(photographer)
-        // récupération des tags
+        // Récupération des tags
         const articleTags = document.getElementById(
           'article-tags-' + photographer.id
         )
