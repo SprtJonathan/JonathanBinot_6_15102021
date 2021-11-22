@@ -62,8 +62,8 @@ function displayPage (sorter) {
           ${photographer.name}
         </h1>
         <h3 tabindex="4" class="photographer-page--location">${photographer.city}, ${photographer.country}</h3>
-        <blockquote tabindex="5" class="photographer-page--tagline">${photographer.tagline}</blockquote>
-        <aside id="article-tags-${photographer.id}" tabindex="6"></aside>
+        <p tabindex="5" class="photographer-page--tagline">${photographer.tagline}</p>
+        <aside id="article-tags-${photographer.id}" tabindex="6" aria-label="${photographer.name} est spécialisée dans les photos de type"></aside>
         </div>
         <div id="contact-button-block" class="contact-button-div"><span id="contact-button" class="button" tabindex="7">Contactez-moi</span></div>
         </div>
@@ -75,7 +75,7 @@ function displayPage (sorter) {
         'article-tags-' + photographer.id
       )
       for (tag of photographer.tags) {
-        articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="${photographer.id}" aria-label="Les spécialités de ${photographer.name} sont ${tag}" >#${tag}</span>`
+        articleTags.innerHTML += `<span id="${tag}" class="tags" data-filter="${tag}" tabindex="6" aria-label="${tag}" >#${tag}</span>`
       }
 
       // Affichage du nom du photographe dans le formulaire de contact
@@ -184,6 +184,15 @@ function displayPage (sorter) {
             console.log('Clic une fois')
             setLikes(e.target.id)
           })
+
+        ) // Détection du clic sur la séction media pour appeler la fonction des likes
+        likesIcon.forEach((el) =>
+          el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              setLikes(e.target.id)
+            }
+          }) // Détection de la touche entrée pour les likes
+
         ) // Détection du clic sur la séction media pour appeler la fonction des likes
 
         const likedElements = [] // Tableau dans lequel seront stockés les id des éléments déjà likés
@@ -222,6 +231,7 @@ function displayPage (sorter) {
         }
       }
 
+      // Fonciton permettant
       function tweakLikes (elementId, value) {
         const likesText = document.getElementById(`like-counter-${elementId}`)
         const likesValue = parseInt(likesText.innerHTML)
@@ -242,12 +252,15 @@ function displayPage (sorter) {
       // Fonction permettant de rafraîchir le nombre total de likes selon un paramètre correspondant au nombre à ajouter
       function refreshLikesCounter (value) {
         totalLikes += value
-        totalLikesText.innerHTML = totalLikes
+        totalLikesText.innerHTML = totalLikes + ' <i class="fas fa-heart"></i>'
+        totalLikesText.setAttribute('aria-label', 'Le nombre total de likes pour la page de ' + photographer.name + ' est de ' + totalLikes)
       }
 
       const totalLikesText = document.getElementById(
         'photographer-total-likes'
       )
+
+      totalLikesText.setAttribute('aria-label', 'Le nombre total de likes pour la page de ' + photographer.name + ' est de ' + totalLikes)
 
       const priceText = document.getElementById('photographer-price')
 

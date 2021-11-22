@@ -119,7 +119,7 @@ function messageValidation () {
 // Création d'un bloc pour le message de succès
 formBody.insertAdjacentHTML(
   'afterend',
-  '<div id="success" class="success-block" tabindex="13"><h2 class="success-title" tabindex="13">Formulaire validé !</h2> <p class="success-text" tabindex="13">Merci de m\'avoir contacté, je vous répondrai prochainement</p><input class="modal--contact-form--submit button" id="form-close-button" type="submit" value="Fermer" tabindex="13"/></div>'
+  '<div id="success" class="success-block" tabindex="13"><h2 class="success-title">Formulaire validé !</h2> <p class="success-text">Merci de m\'avoir contacté, je vous répondrai prochainement</p><input class="modal--contact-form--submit button" id="form-close-button" type="submit" value="Fermer" tabindex="13"/></div>'
 )
 const successMessage = document.getElementById('success')
 successMessage.style.display = 'none' // On le cache par défaut

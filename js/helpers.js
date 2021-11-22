@@ -38,7 +38,7 @@ function createMediaHTMLCode (media) {
       </p>
       <div class="media--like-counter--block" id="like-div-${media.id}" tabindex="${media.photographerId}">
         <span class="media--like-counter--span" id="like-counter-${media.id}" aria-label="il à été aimé ${media.likes} fois ">${media.likes}</span>
-        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${media.id}" tabindex="${media.photographerId}"></i></span>
+        <span class="media--like-counter--icon"><i class="fas fa-heart" id="like-media-${media.id}" tabindex="${media.photographerId}" aria-label="Cliquer sur le coeur pour ajouter un like"></i></span>
       </div>
     </figcaption>
   </figure>`
