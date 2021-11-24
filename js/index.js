@@ -43,7 +43,7 @@ eventsFilter.addEventListener('keypress', filterPhotographer)
 // Fonction déclenchant l'affichage du bouton passer au contenu lors du scroll
 function scrollDiv () {
   const y = window.scrollY
-  if (y >= 10) {
+  if (y >= 8) {
     allPhotographers.className = 'content-button--link--show'
   } else {
     allPhotographers.className = 'content-button--link'
@@ -95,6 +95,7 @@ function filterPhotographer () {
   console.log(activeFilter)
   const photographerMatchList = []
 
+  // Récupération des photographes dans le JSON
   fetch(dataLocation)
     .then((response) => response.json())
     .then(function (data) {
@@ -110,15 +111,19 @@ function filterPhotographer () {
           object.price,
           object.portrait
         )
+        // On appelle la fonction permettant de comparer les tags des photographes
         compareTags()
         function compareTags () {
+          // Pour chaque photographe contenant le tag actif
           photographer.tags.forEach((e) => {
             if (e === activeFilter) {
+              // On ajoute l'objet au tableau
               photographerMatchList.push(photographer)
             }
           })
         }
       }
+      // On parcours ensuite le tableau afin de créer le code HTML de chaque photographe correspondant au tag sélectionné
       for (photographer of photographerMatchList) {
         photographerSection.innerHTML += createHTMLCode(photographer)
         // Récupération des tags

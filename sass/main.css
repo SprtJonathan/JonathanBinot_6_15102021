@@ -335,6 +335,7 @@ main {
   left: 0;
   width: 100%;
   text-align: center;
+  z-index: 200;
 }
 
 .content-button--link {
