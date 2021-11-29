@@ -115,18 +115,22 @@ function displayPage (sorter) {
       // Fonction de fermeture de la modale de contact
       function closeModal () {
         console.log(validateForm())
-        if (validateForm() === 1) {
+        if (validateForm() !== 0) {
           resetForm()
         }
         modalbg.style.display = 'none'
         contactButton.style.display = 'flex'
       }
 
+      let formInformations = [] // Tableau contenant les informations entrées dans le formulaire
+
       // Lorsque l'on clique sur le bouton de validation
       formSubmitButton.addEventListener('click', ($event) => {
         $event.preventDefault() // On empêche le comportement par défaut
         // On vérifie que tous les champs soient validés grâce à une variable
         validateForm()
+        formInformations = validateForm()
+        console.log(formInformations) // Affichage des données enregistrées lorsque le formulaire est validé
       })
 
       // Lorsque l'on clique sur le bouton de fermeture

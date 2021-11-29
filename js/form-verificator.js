@@ -126,17 +126,17 @@ successMessage.style.display = 'none' // On le cache par défaut
 
 // Fonction de validation du formulaire
 function validateForm () {
+  const contactInformations = [fnameId.value, lnameId.value, emailId.value, messageId.value] // Création d'un tableau contenant les informations récupérées dans le formulaire
   const formValidator =
     nameValidation(fnameId, fnameError) *
     nameValidation(lnameId, lnameError) *
     emailValidation() *
     messageValidation()
-  console.log(formValidator)
   if (formValidator === 1) {
     // Si tous les champs sont valides, on affiche le message de succès
     successMessage.style.display = 'flex'
     formBody.style.display = 'none' // Affichage du bloc de succès avec le bouton fermer
-    return 1
+    return contactInformations // Envoi des informations récupérées dans le formulaire
   } else {
     return 0
   }
